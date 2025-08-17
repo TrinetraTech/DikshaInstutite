@@ -5,7 +5,7 @@ import Footer from "./Footer/Footer";
 import "./App.css";
 
 // Importing pages for routing
-import Contact from "./pages/Contact/contact";
+import Contact from "./pages/Contact/Contact";
 import About from "./pages/About/About";
 import Classes from "./pages/Classes/Class";
 import Gallery from "./pages/Gallery/Gallery";

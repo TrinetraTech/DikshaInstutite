@@ -11,6 +11,11 @@ import Classes from "./pages/Classes/Class";
 import Gallery from "./pages/Gallery/Gallery";
 import Home from "./pages/Hone/Home";
 import PopupForm from "./Components/popup";
+import SEOHelmet from "./Seo/SEOHelmet";
+
+
+
+
 function App() {
   const [showPopup, setShowPopup] = useState(false);
 
@@ -28,6 +33,7 @@ function App() {
   };
   return (
     <>
+      <SEOHelmet  />
       <Navbar />
       {showPopup && <PopupForm onClose={handleClose} />}
       <main style={{ paddingTop: "60px" }}>

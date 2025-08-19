@@ -67,7 +67,7 @@ const Classes = () => {
           <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto animate-fade-in-down animate-delay-100">
             Expand your knowledge with our diverse course offerings
           </p>
-          <button className="bg-white text-blue-700 px-8 py-3 rounded-full font-bold shadow-lg hover:bg-blue-50 transform hover:-translate-y-1 transition duration-300 animate-fade-in-up animate-delay-200">
+          <button onClick={() => setShowPopup(true)} className="bg-white text-blue-700 px-8 py-3 rounded-full font-bold shadow-lg hover:bg-blue-50 transform hover:-translate-y-1 transition duration-300 animate-fade-in-up animate-delay-200">
             Browse All Classes
           </button>
         </div>

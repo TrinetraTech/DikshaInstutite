@@ -78,20 +78,38 @@ const Classes = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">All Classes</h2>
-            <div className="flex justify-center space-x-4 mb-6">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setActiveCategory(category)}
-                  className={`px-4 py-2 rounded-full ${
-                    activeCategory === category
-                      ? "bg-blue-600 text-white"
-                      : "bg-white text-gray-700 border"
-                  }`}
+            <div className="mb-6">
+              {/* Web / Large Screen Buttons */}
+              <div className="hidden md:flex justify-center space-x-4">
+                {categories.map((category) => (
+                  <button
+                    key={category}
+                    onClick={() => setActiveCategory(category)}
+                    className={`px-4 py-2 rounded-full ${
+                      activeCategory === category
+                        ? "bg-blue-600 text-white"
+                        : "bg-white text-gray-700 border"
+                    }`}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
+
+              {/* Mobile / Small Screen Dropdown */}
+              <div className="md:hidden flex justify-center">
+                <select
+                  value={activeCategory}
+                  onChange={(e) => setActiveCategory(e.target.value)}
+                  className="border rounded-lg px-4 py-2"
                 >
-                  {category}
-                </button>
-              ))}
+                  {categories.map((category) => (
+                    <option key={category} value={category}>
+                      {category}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
           </div>
 

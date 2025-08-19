@@ -63,8 +63,7 @@ const testimonialsData = [
       "https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=200&h=200&q=80",
     name: "Ananya Verma",
     role: "Class 12 Boards",
-    quote:
-      "Scored 98% in CBSE Boards with their study material & guidance.",
+    quote: "Scored 98% in CBSE Boards with their study material & guidance.",
   },
   {
     id: 4,
@@ -72,7 +71,8 @@ const testimonialsData = [
       "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&h=200&q=80",
     name: "Aryan Khanna",
     role: "Class 10 Boards",
-    quote: "Secured 97% with their comprehensive study material and doubt sessions.",
+    quote:
+      "Secured 97% with their comprehensive study material and doubt sessions.",
   },
   {
     id: 5,
@@ -80,7 +80,8 @@ const testimonialsData = [
       "https://images.unsplash.com/photo-1567532939604-b6b5b0e1601d?auto=format&fit=crop&w=200&h=200&q=80",
     name: "Neha Gupta",
     role: "KVPY Scholar",
-    quote: "The research guidance helped me secure KVPY fellowship with AIR 42.",
+    quote:
+      "The research guidance helped me secure KVPY fellowship with AIR 42.",
   },
   {
     id: 6,
@@ -114,22 +115,22 @@ const ctaData = {
   title: "Ready to Transform Your Academic Journey?",
   subtitle:
     "Limited seats available for 2024-25 batch. Enroll now for exclusive benefits!",
-  buttons: [
-    { id: 2, text: "Schedule Campus Visit" },
-  ],
+  buttons: [{ id: 2, text: "Schedule Campus Visit" }],
 };
 
 // NEW DATA SECTIONS
 const ourStoryData = {
   title: "Our Journey of Excellence",
-  description: "Founded in 2008 by IIT alumni, Diksha Classes has transformed from a small coaching center to a premier educational institution. Our mission is to democratize quality education through innovative teaching methodologies that make complex concepts accessible to all students.",
+  description:
+    "Founded in 2008 by IIT alumni, Diksha Classes has transformed from a small coaching center to a premier educational institution. Our mission is to democratize quality education through innovative teaching methodologies that make complex concepts accessible to all students.",
   stats: [
     { value: "15+", label: "Years of Excellence" },
     { value: "10,000+", label: "Students Transformed" },
     { value: "50+", label: "Expert Faculty" },
     { value: "12", label: "Centers Nationwide" },
   ],
-  image: "https://images.pexels.com/photos/3184328/pexels-photo-3184328.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+  image:
+    "https://images.pexels.com/photos/3184328/pexels-photo-3184328.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
 };
 
 const coursesData = [
@@ -138,57 +139,78 @@ const coursesData = [
     title: "JEE (Main + Advanced)",
     description: "Comprehensive program with 1000+ hours of intensive training",
     duration: "2 Years",
-    highlights: ["Daily practice tests", "IIT alumni mentorship", "AIR prediction tests"]
+    highlights: [
+      "Daily practice tests",
+      "IIT alumni mentorship",
+      "AIR prediction tests",
+    ],
   },
   {
     id: 2,
     title: "NEET UG",
     description: "Biology-focused curriculum with NCERT reinforcement",
     duration: "2 Years",
-    highlights: ["Special anatomy workshops", "Medical professional interactions", "Previous year paper analysis"]
+    highlights: [
+      "Special anatomy workshops",
+      "Medical professional interactions",
+      "Previous year paper analysis",
+    ],
   },
   {
     id: 3,
     title: "Foundation (Classes 9-10)",
     description: "Building strong fundamentals for future competitive exams",
     duration: "2 Years",
-    highlights: ["Olympiad preparation", "Concept visualization labs", "Science projects"]
+    highlights: [
+      "Olympiad preparation",
+      "Concept visualization labs",
+      "Science projects",
+    ],
   },
   {
     id: 4,
     title: "Olympiad Excellence",
     description: "Specialized training for international science olympiads",
     duration: "1 Year",
-    highlights: ["Problem-solving workshops", "Previous IOQ papers", "International exposure"]
-  }
+    highlights: [
+      "Problem-solving workshops",
+      "Previous IOQ papers",
+      "International exposure",
+    ],
+  },
 ];
 
 const faqData = [
   {
     id: 1,
     question: "What makes Diksha different from other coaching institutes?",
-    answer: "Our unique teaching methodology combines concept visualization, application workshops, and continuous assessment. We maintain a 1:15 teacher-student ratio for personalized attention and have developed proprietary learning materials that simplify complex concepts."
+    answer:
+      "Our unique teaching methodology combines concept visualization, application workshops, and continuous assessment. We maintain a 1:15 teacher-student ratio for personalized attention and have developed proprietary learning materials that simplify complex concepts.",
   },
   {
     id: 2,
     question: "Do you provide scholarships?",
-    answer: "Yes, we offer merit-based scholarships up to 100% tuition fee waiver for top performers in our entrance test. We also have need-based scholarships for economically disadvantaged students. Over 35% of our students receive some form of financial assistance."
+    answer:
+      "Yes, we offer merit-based scholarships up to 100% tuition fee waiver for top performers in our entrance test. We also have need-based scholarships for economically disadvantaged students. Over 35% of our students receive some form of financial assistance.",
   },
   {
     id: 3,
     question: "How are parents kept informed about progress?",
-    answer: "We provide monthly performance reports, conduct quarterly parent-teacher meetings, and offer 24/7 access to our student portal with real-time progress tracking. Parents also receive SMS alerts about test schedules and important announcements."
+    answer:
+      "We provide monthly performance reports, conduct quarterly parent-teacher meetings, and offer 24/7 access to our student portal with real-time progress tracking. Parents also receive SMS alerts about test schedules and important announcements.",
   },
   {
     id: 4,
     question: "What safety measures do you have?",
-    answer: "Our campuses have CCTV surveillance, biometric attendance, dedicated female staff, and medical facilities. We follow strict protocols for student safety including background-verified staff, secure transportation options, and anti-bullying policies."
+    answer:
+      "Our campuses have CCTV surveillance, biometric attendance, dedicated female staff, and medical facilities. We follow strict protocols for student safety including background-verified staff, secure transportation options, and anti-bullying policies.",
   },
   {
     id: 5,
     question: "How do you handle different learning paces?",
-    answer: "We use adaptive learning technology that customizes study plans based on individual progress. Our foundation program includes remedial classes for struggling students and advanced modules for quick learners, ensuring every student reaches their potential."
-  }
+    answer:
+      "We use adaptive learning technology that customizes study plans based on individual progress. Our foundation program includes remedial classes for struggling students and advanced modules for quick learners, ensuring every student reaches their potential.",
+  },
 ];
 
 const teamData = [
@@ -197,29 +219,29 @@ const teamData = [
     name: "Dr. Vikram Mehta",
     role: "Physics Expert",
     qualification: "PhD (IIT Delhi), 15+ years experience",
-    specialty: "Mechanics & Modern Physics"
+    specialty: "Mechanics & Modern Physics",
   },
   {
     id: 2,
     name: "Prof. Anjali Rao",
     role: "Chemistry HOD",
     qualification: "MSc (IISc Bangalore), 12+ years experience",
-    specialty: "Organic Chemistry & Reaction Mechanisms"
+    specialty: "Organic Chemistry & Reaction Mechanisms",
   },
   {
     id: 3,
     name: "Dr. Rajesh Kumar",
     role: "Mathematics Mentor",
     qualification: "PhD (IIT Kanpur), 18+ years experience",
-    specialty: "Calculus & Algebra"
+    specialty: "Calculus & Algebra",
   },
   {
     id: 4,
     name: "Dr. Priya Singh",
     role: "Biology Director",
     qualification: "PhD (AIIMS), 14+ years experience",
-    specialty: "Genetics & Human Physiology"
-  }
+    specialty: "Genetics & Human Physiology",
+  },
 ];
 
 // ========================== COMPONENT ==========================
@@ -291,7 +313,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Our Story Section */}
+      {/* Our Story Section
       <section className="py-20 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -331,6 +353,62 @@ const Home = () => {
               </div>
               
               <button 
+                onClick={() => setShowPopup(true)}
+                className="mt-8 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition"
+              >
+                Learn More About Us
+              </button>
+            </motion.div>
+          </div>
+        </div>
+      </section> */}
+
+      <section className="py-20 px-6 bg-white overflow-x-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="overflow-hidden"
+            >
+              <img
+                src={ourStoryData.image}
+                alt="Our Story"
+                className="rounded-2xl shadow-xl w-full"
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="overflow-hidden"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+                {ourStoryData.title}
+              </h2>
+              <p className="text-gray-600 text-lg mb-8">
+                {ourStoryData.description}
+              </p>
+
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {ourStoryData.stats.map((stat, index) => (
+                  <div
+                    key={index}
+                    className="text-center p-4 bg-indigo-50 rounded-lg"
+                  >
+                    <div className="text-3xl font-bold text-indigo-600">
+                      {stat.value}
+                    </div>
+                    <div className="text-gray-700">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+
+              <button
                 onClick={() => setShowPopup(true)}
                 className="mt-8 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition"
               >
@@ -394,12 +472,18 @@ const Home = () => {
                 className="bg-white rounded-2xl shadow-lg overflow-hidden"
               >
                 <div className="p-6 border-b-4 border-indigo-500">
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">{course.title}</h3>
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">
+                    {course.title}
+                  </h3>
                   <p className="text-gray-600 mb-4">{course.description}</p>
-                  <div className="text-indigo-600 font-semibold mb-4">Duration: {course.duration}</div>
-                  
+                  <div className="text-indigo-600 font-semibold mb-4">
+                    Duration: {course.duration}
+                  </div>
+
                   <div className="text-left">
-                    <h4 className="font-semibold text-gray-700 mb-2">Key Highlights:</h4>
+                    <h4 className="font-semibold text-gray-700 mb-2">
+                      Key Highlights:
+                    </h4>
                     <ul className="space-y-1">
                       {course.highlights.map((highlight, index) => (
                         <li key={index} className="flex items-start">
@@ -410,8 +494,8 @@ const Home = () => {
                     </ul>
                   </div>
                 </div>
-                
-                <button 
+
+                <button
                   onClick={() => setShowPopup(true)}
                   className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold transition"
                 >
@@ -441,9 +525,15 @@ const Home = () => {
                 className="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition"
               >
                 <div className="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16 mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-gray-800">{member.name}</h3>
-                <p className="text-indigo-600 font-semibold mb-2">{member.role}</p>
-                <p className="text-gray-600 text-sm mb-3">{member.qualification}</p>
+                <h3 className="text-xl font-bold text-gray-800">
+                  {member.name}
+                </h3>
+                <p className="text-indigo-600 font-semibold mb-2">
+                  {member.role}
+                </p>
+                <p className="text-gray-600 text-sm mb-3">
+                  {member.qualification}
+                </p>
                 <p className="text-gray-700 bg-indigo-50 px-3 py-1 rounded-full text-sm inline-block">
                   {member.specialty}
                 </p>
@@ -485,30 +575,33 @@ const Home = () => {
               Frequently Asked Questions
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Get answers to common questions about our programs and admission process
+              Get answers to common questions about our programs and admission
+              process
             </p>
           </div>
-          
+
           <div className="space-y-4">
             {faqData.map((faq) => (
-              <div 
-                key={faq.id} 
+              <div
+                key={faq.id}
                 className="border border-gray-200 rounded-xl overflow-hidden"
               >
                 <button
                   className="flex justify-between items-center w-full p-6 text-left bg-gray-50 hover:bg-gray-100 transition"
                   onClick={() => toggleFaq(faq.id)}
                 >
-                  <span className="font-semibold text-lg text-gray-800">{faq.question}</span>
+                  <span className="font-semibold text-lg text-gray-800">
+                    {faq.question}
+                  </span>
                   <span className="text-indigo-600 text-2xl">
-                    {activeFaq === faq.id ? '-' : '+'}
+                    {activeFaq === faq.id ? "-" : "+"}
                   </span>
                 </button>
-                
+
                 {activeFaq === faq.id && (
                   <motion.div
                     initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
+                    animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}
                     className="p-6 bg-white"
                   >
@@ -518,12 +611,12 @@ const Home = () => {
               </div>
             ))}
           </div>
-          
+
           <div className="mt-12 text-center">
             <p className="text-gray-700 mb-6">
               Still have questions? Our admission counselors are ready to help
             </p>
-            <button 
+            <button
               onClick={() => setShowPopup(true)}
               className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg transition"
             >
@@ -553,7 +646,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Popup Modal */}
       {showPopup && <ContactPopup onClose={() => setShowPopup(false)} />}
     </div>

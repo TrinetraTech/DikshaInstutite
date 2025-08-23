@@ -9,44 +9,45 @@ const galleryItems = [
   {
     id: 1,
     type: "photo",
-    src: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=800",
+    src: "src/assets/WhatsApp Unknown 2025-08-24 at 2.05.01 AM/WhatsApp Image 2025-08-22 at 6.41.16 PM.jpeg",
   },
   {
     id: 2,
-    type: "video",
-    src: "https://videos.pexels.com/video-files/856002/856002-hd_1280_720_25fps.mp4",
+    type: "photo",
+    src: "src/assets/WhatsApp Unknown 2025-08-24 at 2.05.01 AM/WhatsApp Image 2025-08-22 at 6.41.17 PM (1).jpeg",
   },
   {
     id: 3,
     type: "photo",
-    src: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800",
+    src: "src/assets/WhatsApp Unknown 2025-08-24 at 2.05.01 AM/WhatsApp Image 2025-08-22 at 6.41.17 PM.jpeg",
   },
   {
     id: 4,
-    type: "video",
-    src: "https://videos.pexels.com/video-files/3182836/3182836-hd_1280_720_30fps.mp4",
+    type: "photo",
+    src: "src/assets/WhatsApp Unknown 2025-08-24 at 2.05.01 AM/WhatsApp Image 2025-08-22 at 6.41.18 PM (1).jpeg",
   },
   {
     id: 5,
     type: "photo",
-    src: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800",
+    src: "src/assets/WhatsApp Unknown 2025-08-24 at 2.05.01 AM/WhatsApp Image 2025-08-22 at 6.41.18 PM.jpeg",
   },
   {
     id: 6,
     type: "photo",
-    src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800",
+    src: "src/assets/WhatsApp Unknown 2025-08-24 at 2.05.01 AM/WhatsApp Image 2025-08-22 at 6.41.19 PM.jpeg",
   },
   {
     id: 7,
-    type: "video",
-    src: "https://videos.pexels.com/video-files/4146450/4146450-hd_1280_720_30fps.mp4",
+    type: "photo",
+    src: "src/assets/WhatsApp Unknown 2025-08-24 at 2.05.01 AM/WhatsApp Image 2025-08-22 at 6.46.21 PM.jpeg",
   },
   {
     id: 8,
     type: "photo",
-    src: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?w=800",
+    src: "src/assets/WhatsApp Unknown 2025-08-24 at 2.05.01 AM/WhatsApp Image 2025-08-22 at 6.46.22 PM.jpeg",
   },
 ];
+
 
   const [filter, setFilter] = useState('all');
   const filteredItems = filter === 'all' 

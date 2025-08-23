@@ -113,7 +113,7 @@ export default function Contact() {
                 <p className="text-gray-600">
                   Monday - Saturday: 8:00 AM - 8:00 PM
                   <br />
-                  Sunday: 9:00 AM - 2:00 PM
+                  Sunday: 9:00 AM - 11:00 AM
                 </p>
               </div>
             </div>

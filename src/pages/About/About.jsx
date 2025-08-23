@@ -32,8 +32,6 @@ const About = () => {
 
   const [showPopup, setShowPopup] = useState(false);
 
- 
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       {/* Hero Section */}
@@ -94,13 +92,13 @@ const About = () => {
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="md:w-2/5">
               <div className="relative">
-                    <div className="bg-gray-200 border-2 border-dashed rounded-xl w-full h-96 overflow-hidden">
-                      <img
-                        src={PersonImg}
-                        alt="Person"
-                        className="w-full h-full object-fill"
-                      />
-                    </div>
+                <div className="bg-gray-200 border-2 border-dashed rounded-xl w-full h-96 overflow-hidden">
+                  <img
+                    src={PersonImg}
+                    alt="Person"
+                    className="w-full h-full object-fill"
+                  />
+                </div>
                 <div className="absolute -bottom-6 -right-6 bg-indigo-800 text-white py-4 px-6 rounded-lg">
                   <p className="font-bold text-lg">Dilip Kumar</p>
                   <p className="text-amber-400">Founder & Director</p>
@@ -244,7 +242,7 @@ const About = () => {
               <h4 className="text-lg font-semibold text-gray-900 mb-2">
                 Email Us
               </h4>
-              <p className="text-gray-600">info@dikshaclasses.com</p>
+              <p className="text-gray-600">dikshaclasses312@gmail.com</p>
             </div>
 
             <div className="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow">

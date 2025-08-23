@@ -469,9 +469,10 @@ const Home = () => {
               <motion.div
                 key={course.id}
                 whileHover={{ scale: 1.03 }}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden"
+                className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col"
               >
-                <div className="p-6 border-b-4 border-indigo-500">
+                {/* Content Section */}
+                <div className="p-6 border-b-4 border-indigo-500 flex-grow">
                   <h3 className="text-xl font-bold text-gray-800 mb-2">
                     {course.title}
                   </h3>
@@ -495,6 +496,7 @@ const Home = () => {
                   </div>
                 </div>
 
+                {/* Button Sticks to Bottom */}
                 <button
                   onClick={() => setShowPopup(true)}
                   className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold transition"

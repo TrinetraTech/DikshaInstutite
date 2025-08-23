@@ -10,8 +10,9 @@ import About from "./pages/About/About";
 import Classes from "./pages/Classes/Class";
 import Gallery from "./pages/Gallery/Gallery";
 import Home from "./pages/Hone/Home";
-import PopupForm from "./Components/Popup";
+import PopupForm from "./Components/popup";
 import SEOHelmet from "./Seo/SEOHelmet";
+import ScrollToTop from "./Components/ScrollToTop";
 
 
 
@@ -37,6 +38,7 @@ function App() {
       <Navbar />
       {showPopup && <PopupForm onClose={handleClose} />}
       <main style={{ paddingTop: "60px" }}>
+        <ScrollToTop /> {/* add this just inside Router */}
         {" "}
         {/* Push content down */}
         <Routes>

@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { name: "About", to: "/about" },
   { name: "Classes", to: "/classes" },
   { name: "Gallery", to: "/gallery" },
+  { name: "Blog", to: "/blog" },
   { name: "Contact", to: "/contact" },
 ];
 

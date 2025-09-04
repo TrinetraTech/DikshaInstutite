@@ -9,13 +9,11 @@ import Contact from "./pages/Contact/Contact";
 import About from "./pages/About/About";
 import Classes from "./pages/Classes/Class";
 import Gallery from "./pages/Gallery/Gallery";
+import Blog from "./pages/Blog/Blogage";
 import Home from "./pages/Hone/Home";
-import PopupForm from "./Components/Popup";
+import PopupForm from "./Components/popup";
 import SEOHelmet from "./Seo/SEOHelmet";
 import ScrollToTop from "./Components/ScrollToTop";
-
-
-
 
 function App() {
   const [showPopup, setShowPopup] = useState(false);
@@ -34,12 +32,11 @@ function App() {
   };
   return (
     <>
-      <SEOHelmet  />
+      <SEOHelmet />
       <Navbar />
       {showPopup && <PopupForm onClose={handleClose} />}
       <main style={{ paddingTop: "60px" }}>
-        <ScrollToTop /> {/* add this just inside Router */}
-        {" "}
+        <ScrollToTop /> {/* add this just inside Router */}{" "}
         {/* Push content down */}
         <Routes>
           <Route path="/" element={<Home />} /> {/* Home Page */}
@@ -47,6 +44,7 @@ function App() {
           <Route path="/contact" element={<Contact />} /> {/* Contact Page */}
           <Route path="/classes" element={<Classes />} /> {/* Classes Page */}
           <Route path="/gallery" element={<Gallery />} /> {/* Gallery Page */}
+          <Route path="/blog" element={<Blog />} /> {/* Gallery Page */}
           {/* 404 Page (Optional) */}
           <Route path="*" element={<h1>Page Not Found</h1>} />
         </Routes>

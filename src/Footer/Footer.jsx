@@ -1,10 +1,11 @@
-import { 
-  FaGraduationCap, 
-  FaMapMarkerAlt, 
-  FaPhoneAlt, 
-  FaFacebook, 
-  FaInstagram, 
-  FaTwitter 
+import {
+  FaGraduationCap,
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaFacebook,
+  FaInstagram,
+  FaTwitter,
+  FaYoutube,
 } from "react-icons/fa";
 
 const Footer = () => (
@@ -90,6 +91,14 @@ const Footer = () => (
               className="hover:text-yellow-400"
             >
               <FaTwitter />
+            </a>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-red-500"
+            >
+              <FaYoutube />
             </a>
           </div>
         </div>

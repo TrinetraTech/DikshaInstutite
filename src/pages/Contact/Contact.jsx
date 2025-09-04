@@ -140,7 +140,7 @@ export default function Contact() {
       </div>
 
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d6950.094731162092!2d85.12880339442019!3d25.601839331520697!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sin!4v1755213004466!5m2!1sen!2sin"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d375.95235318785615!2d85.07947857026991!3d25.608267032207113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed57b979c97617%3A0x9d93e3183153082!2sDIKSHA%20CLASSES!5e1!3m2!1sen!2sin!4v1757010887861!5m2!1sen!2sin"
         width="100%"
         height="450"
         style={{ border: "none", margin: "20px 0 0" }}

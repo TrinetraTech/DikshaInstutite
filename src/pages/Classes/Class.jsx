@@ -15,7 +15,6 @@ const Classes = () => {
         "Intensive coaching for engineering aspirants covering Physics, Chemistry, and Mathematics. Designed for Class XI, XII students and droppers with comprehensive study material and regular assessments.",
       level: "XI–XII & Droppers",
       category: "IIT-JEE",
-      price: "₹12,000",
     },
     {
       id: 2,
@@ -25,7 +24,6 @@ const Classes = () => {
         "Focused preparatory courses for medical entrances covering Physics, Chemistry, and Biology. Specially designed curriculum to crack NEET with high scores and secure admission in top medical colleges.",
       level: "XI–XII & Droppers",
       category: "NEET",
-      price: "₹10,000",
     },
     {
       id: 3,
@@ -35,7 +33,6 @@ const Classes = () => {
         "Strong foundation courses for Class XI and XII students focusing on board exam preparation along with competitive exam readiness. Perfect blend of conceptual learning and practical application.",
       level: "XI–XII",
       category: "Foundation",
-      price: "₹8,000",
     },
     {
       id: 4,
@@ -45,7 +42,6 @@ const Classes = () => {
         "Building strong basics for Classes VII, VIII, IX & X students. Preparation for Olympiads, NTSE, and future entrance exams with emphasis on fundamental concepts and problem-solving skills.",
       level: "VII–X",
       category: "Pre-Foundation",
-      price: "₹6,000",
     },
   ];
 
@@ -67,7 +63,10 @@ const Classes = () => {
           <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto animate-fade-in-down animate-delay-100">
             Expand your knowledge with our diverse course offerings
           </p>
-          <button onClick={() => setShowPopup(true)} className="bg-white text-blue-700 px-8 py-3 rounded-full font-bold shadow-lg hover:bg-blue-50 transform hover:-translate-y-1 transition duration-300 animate-fade-in-up animate-delay-200">
+          <button
+            onClick={() => setShowPopup(true)}
+            className="bg-white text-blue-700 px-8 py-3 rounded-full font-bold shadow-lg hover:bg-blue-50 transform hover:-translate-y-1 transition duration-300 animate-fade-in-up animate-delay-200"
+          >
             Browse All Classes
           </button>
         </div>
@@ -129,10 +128,6 @@ const Classes = () => {
                   </div>
                   <p className="mb-4 text-gray-600">{cls.description}</p>
                   <div className="flex justify-between items-center">
-                    <div>
-                      <span className="font-bold text-lg">{cls.price}</span>
-                      <span className="text-gray-500 text-sm"> /course</span>
-                    </div>
                     {/* Enroll Button */}
                     <button
                       onClick={() => setShowPopup(true)}

@@ -122,7 +122,7 @@ const ctaData = {
 const ourStoryData = {
   title: "Our Journey of Excellence",
   description:
-    "Founded in 2008 by IIT alumni, Diksha Classes has transformed from a small coaching center to a premier educational institution. Our mission is to democratize quality education through innovative teaching methodologies that make complex concepts accessible to all students.",
+    "Founded in 2008 , Diksha Classes has transformed from a small coaching center to a premier educational institution. Our mission is to democratize quality education through innovative teaching methodologies that make complex concepts accessible to all students.",
   stats: [
     { value: "15+", label: "Years of Excellence" },
     { value: "10,000+", label: "Students Transformed" },

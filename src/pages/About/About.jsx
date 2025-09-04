@@ -141,7 +141,7 @@ const About = () => {
                   <div className="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center">
                     <FaUserGraduate className="text-amber-600 text-xl" />
                   </div>
-                  <p className="font-medium">M.Tech, IIT Delhi</p>
+                  <p className="font-medium">M.Sc Math</p>
                 </div>
               </div>
             </div>
@@ -245,13 +245,22 @@ const About = () => {
               <p className="text-gray-600">dikshaclasses312@gmail.com</p>
             </div>
 
-            <div className="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow">
-              <FaMapMarker className="text-3xl text-blue-600 mx-auto mb-4" />
-              <h4 className="text-lg font-semibold text-gray-900 mb-2">
-                Visit Us
-              </h4>
-              <p className="text-gray-600">123 Education Street, City</p>
-            </div>
+            <a
+              href="https://maps.app.goo.gl/7edLW1m4w7eswXq17"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow cursor-pointer">
+                <FaMapMarker className="text-3xl text-blue-600 mx-auto mb-4" />
+                <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                  Visit Us
+                </h4>
+                <p className="text-gray-600">
+                  Radhe Shyam Market, Akashwani Road, Near Passport Office,
+                  Patna-14
+                </p>
+              </div>
+            </a>
           </div>
 
           {/* Get Started Button */}

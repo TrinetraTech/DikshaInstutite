@@ -11,7 +11,7 @@ import Classes from "./pages/Classes/Class";
 import Gallery from "./pages/Gallery/Gallery";
 import Blog from "./pages/Blog/Blogage";
 import Home from "./pages/Hone/Home";
-import PopupForm from "./Components/pPopup";
+import PopupForm from "./Components/Popup";
 import SEOHelmet from "./Seo/SEOHelmet";
 import ScrollToTop from "./Components/ScrollToTop";
 

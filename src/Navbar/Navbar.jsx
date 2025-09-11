@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom"; // ✅ import useLocation
+import { Link, useLocation } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
-import logo from "../assets/logo.png"; // path to your logo image
+import logo from "../assets/logo.png";
+
+const STUDENT_LINK = { name: "Student Portal", to: "/student/dashboard" };
 
 const NAV_LINKS = [
   { name: "Home", to: "/" },
@@ -14,7 +16,7 @@ const NAV_LINKS = [
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const location = useLocation(); // ✅ get current route
+  const location = useLocation();
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -29,7 +31,7 @@ const Navbar = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 shadow transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Logo/Title */}
+            {/* ✅ Left - Logo */}
             <div className="flex items-center space-x-2 flex-shrink-0">
               <img
                 src={logo}
@@ -41,7 +43,7 @@ const Navbar = () => {
               </span>
             </div>
 
-            {/* Desktop Menu */}
+            {/* ✅ Center - Menu */}
             <div className="hidden lg:flex flex-1 justify-center items-center space-x-6">
               {NAV_LINKS.map((link) => (
                 <Link
@@ -58,10 +60,24 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* Right - Hamburger */}
-            <div className="flex items-center gap-2">
+            {/* ✅ Right - Student Portal */}
+            <div className="hidden lg:flex items-center">
+              <Link
+                to={STUDENT_LINK.to}
+                className={`bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-lg font-semibold transition-colors duration-200 ${
+                  location.pathname === STUDENT_LINK.to
+                    ? "ring-2 ring-blue-400"
+                    : ""
+                }`}
+              >
+                {STUDENT_LINK.name}
+              </Link>
+            </div>
+
+            {/* Mobile - Hamburger */}
+            <div className="flex items-center gap-2 lg:hidden">
               <button
-                className="lg:hidden ml-2 p-2 rounded-md text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors duration-200 focus:outline-none"
+                className="ml-2 p-2 rounded-md text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors duration-200 focus:outline-none"
                 onClick={() => setMenuOpen(!menuOpen)}
                 aria-label="Open main menu"
                 aria-expanded={menuOpen}
@@ -72,7 +88,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* ✅ Mobile Menu */}
         <div
           className={`lg:hidden transition-all duration-300 ${
             menuOpen
@@ -95,6 +111,19 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
+
+            {/* Student Portal in mobile menu */}
+            <Link
+              to={STUDENT_LINK.to}
+              onClick={() => setMenuOpen(false)}
+              className={`w-full text-center bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-lg font-semibold transition-colors duration-200 ${
+                location.pathname === STUDENT_LINK.to
+                  ? "ring-2 ring-blue-400"
+                  : ""
+              }`}
+            >
+              {STUDENT_LINK.name}
+            </Link>
           </div>
         </div>
       </nav>

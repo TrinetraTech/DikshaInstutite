@@ -12,6 +12,8 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
     "framer-motion": "^12.23.12",
+    "lottie-react": "^2.4.1",
+    "lottie-web": "^5.13.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-helmet": "^6.1.0",

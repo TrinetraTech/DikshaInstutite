@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   FaGraduationCap,
   FaMapMarkerAlt,
@@ -30,12 +31,12 @@ const Footer = () => (
           <ul className="space-y-2">
             {["home", "about", "classes", "gallery", "contact"].map((link) => (
               <li key={link}>
-                <a
-                  href={`#${link}`}
+                <Link
+                  to={link === "home" ? "/" : `/${link}`}
                   className="text-gray-300 hover:text-yellow-400 transition-colors duration-200 capitalize"
                 >
                   {link}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

@@ -60,7 +60,7 @@ const Gallery = () => {
         {/* Filter Tabs */}
         <div className="flex justify-center mb-8">
           <div className="inline-flex bg-white rounded-lg shadow p-1">
-            {["all", "photo", "video"].map((type) => (
+            {["all", "photo"].map((type) => (
               <button
                 key={type}
                 onClick={() => setFilter(type)}

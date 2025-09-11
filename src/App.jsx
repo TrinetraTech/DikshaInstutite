@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./Navbar/Navbar";
 import Footer from "./Footer/Footer";
 import "./App.css";
@@ -15,11 +15,15 @@ import PopupForm from "./Components/popup";
 import SEOHelmet from "./Seo/SEOHelmet";
 import ScrollToTop from "./Components/ScrollToTop";
 
+import StudentLayout from "./Student_potal/StudentLayout";
+import StudentDashboard from "./Student_potal/StudentDashboard";
+import NotesPage from "./Student_potal/NotesPage";
+
 function App() {
   const [showPopup, setShowPopup] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
-    // Show popup only once per session
     const isClosed = sessionStorage.getItem("popupClosed");
     if (!isClosed) {
       setShowPopup(true);
@@ -30,26 +34,36 @@ function App() {
     setShowPopup(false);
     sessionStorage.setItem("popupClosed", "true");
   };
+
+  // ✅ Hide main layout if on /student routes
+  const hideLayout = location.pathname.startsWith("/student");
+
   return (
     <>
       <SEOHelmet />
-      <Navbar />
-      {showPopup && <PopupForm onClose={handleClose} />}
-      <main style={{ paddingTop: "60px" }}>
-        <ScrollToTop /> {/* add this just inside Router */}{" "}
-        {/* Push content down */}
+      {!hideLayout && <Navbar />}
+      {showPopup && !hideLayout && <PopupForm onClose={handleClose} />}
+      <main style={{ paddingTop: hideLayout ? "0px" : "60px" }}>
+        <ScrollToTop />
         <Routes>
-          <Route path="/" element={<Home />} /> {/* Home Page */}
-          <Route path="/about" element={<About />} /> {/* About Page */}
-          <Route path="/contact" element={<Contact />} /> {/* Contact Page */}
-          <Route path="/classes" element={<Classes />} /> {/* Classes Page */}
-          <Route path="/gallery" element={<Gallery />} /> {/* Gallery Page */}
-          <Route path="/blog" element={<Blog />} /> {/* Gallery Page */}
-          {/* 404 Page (Optional) */}
+          {/* Public Routes */}
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/classes" element={<Classes />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/blog" element={<Blog />} />
+
+          {/* ✅ Student Routes with Layout */}
+          <Route element={<StudentLayout />}>
+            <Route path="/student/dashboard" element={<StudentDashboard />} />
+            <Route path="/student/notes" element={<NotesPage />} />
+          </Route>
+
           <Route path="*" element={<h1>Page Not Found</h1>} />
         </Routes>
       </main>
-      <Footer />
+      {!hideLayout && <Footer />}
     </>
   );
 }

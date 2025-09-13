@@ -1,266 +1,300 @@
 // Home.jsx
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react"; // <-- Add useEffect import
+import { motion, AnimatePresence } from "framer-motion"; // <-- Add AnimatePresence import
 import ContactPopup from "../../Components/ContactPopup";
 
+// Import your images
+import img1 from "../../assets/img/img1.jpeg"; // <-- Fix image import paths
+import img2 from "../../assets/img/img2.jpeg";
+import img3 from "../../assets/img/img3.jpeg";
+import img4 from "../../assets/img/img4.jpeg";
+import img5 from "../../assets/img/img5.jpeg";
+import img6 from "../../assets/img/img6.jpeg";
+import img7 from "../../assets/img/img7.jpeg";
+import img8 from "../../assets/img/img8.jpeg";
+
 // ========================== DATA ==========================
-const heroData = {
-  title: "Ignite Your Academic Excellence",
-  subtitle:
-    "Premier coaching for competitive exams with a proven 98% success rate",
-  buttonText: "Free Trial Class",
-  bgImage:
-    "https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-};
-
-const featuresData = [
-  {
-    id: 1,
-    icon: "🎓",
-    title: "Expert Faculty",
-    desc: "PhD & IIT alumni with 10+ years of teaching experience",
-  },
-  {
-    id: 2,
-    icon: "📘",
-    title: "Personalized Learning",
-    desc: "Custom study plans and 1:1 mentorship sessions",
-  },
-  {
-    id: 3,
-    icon: "🏆",
-    title: "98% Success Rate",
-    desc: "Consistent top ranks in boards & competitive exams",
-  },
-  {
-    id: 4,
-    icon: "🏫",
-    title: "Modern Facilities",
-    desc: "Smart classrooms & advanced learning resources",
-  },
-];
-
-const testimonialsData = [
-  {
-    id: 1,
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&h=200&q=80",
-    name: "Rahul Sharma",
-    role: "JEE Advanced 2023",
-    quote: "Diksha's faculty gave me conceptual clarity to secure AIR 287.",
-  },
-  {
-    id: 2,
-    image:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&h=200&q=80",
-    name: "Priya Patel",
-    role: "NEET 2023",
-    quote: "Personalized mentorship improved my rank by 4000 positions.",
-  },
-  {
-    id: 3,
-    image:
-      "https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=200&h=200&q=80",
-    name: "Ananya Verma",
-    role: "Class 12 Boards",
-    quote: "Scored 98% in CBSE Boards with their study material & guidance.",
-  },
-  {
-    id: 4,
-    image:
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&h=200&q=80",
-    name: "Aryan Khanna",
-    role: "Class 10 Boards",
-    quote:
-      "Secured 97% with their comprehensive study material and doubt sessions.",
-  },
-  {
-    id: 5,
-    image:
-      "https://images.unsplash.com/photo-1567532939604-b6b5b0e1601d?auto=format&fit=crop&w=200&h=200&q=80",
-    name: "Neha Gupta",
-    role: "KVPY Scholar",
-    quote:
-      "The research guidance helped me secure KVPY fellowship with AIR 42.",
-  },
-  {
-    id: 6,
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&h=200&q=80",
-    name: "Rohan Desai",
-    role: "JEE Mains 2023",
-    quote: "Improved from 85 to 99 percentile in just 6 months!",
-  },
-];
-
-const galleryData = [
-  {
-    id: 1,
-    img: "https://images.pexels.com/photos/5212340/pexels-photo-5212340.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    alt: "Campus 1",
-  },
-  {
-    id: 2,
-    img: "https://images.pexels.com/photos/4145153/pexels-photo-4145153.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    alt: "Campus 2",
-  },
-  {
-    id: 3,
-    img: "https://images.pexels.com/photos/4144222/pexels-photo-4144222.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    alt: "Campus 3",
-  },
-];
-
-const ctaData = {
-  title: "Ready to Transform Your Academic Journey?",
-  subtitle:
-    "Limited seats available for 2024-25 batch. Enroll now for exclusive benefits!",
-  buttons: [{ id: 2, text: "Schedule Campus Visit" }],
-};
-
-// NEW DATA SECTIONS
-const ourStoryData = {
-  title: "Our Journey of Excellence",
-  description:
-    "Founded in 2008 , Diksha Classes has transformed from a small coaching center to a premier educational institution. Our mission is to democratize quality education through innovative teaching methodologies that make complex concepts accessible to all students.",
-  stats: [
-    { value: "15+", label: "Years of Excellence" },
-    { value: "10,000+", label: "Students Transformed" },
-    { value: "50+", label: "Expert Faculty" },
-    { value: "12", label: "Centers Nationwide" },
-  ],
-  image:
-    "https://images.pexels.com/photos/3184328/pexels-photo-3184328.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-};
-
-const coursesData = [
-  {
-    id: 1,
-    title: "JEE (Main + Advanced)",
-    description: "Comprehensive program with 1000+ hours of intensive training",
-    duration: "2 Years",
-    highlights: [
-      "Daily practice tests",
-      "IIT alumni mentorship",
-      "AIR prediction tests",
-    ],
-  },
-  {
-    id: 2,
-    title: "NEET UG",
-    description: "Biology-focused curriculum with NCERT reinforcement",
-    duration: "2 Years",
-    highlights: [
-      "Special anatomy workshops",
-      "Medical professional interactions",
-      "Previous year paper analysis",
-    ],
-  },
-  {
-    id: 3,
-    title: "Foundation (Classes 9-10)",
-    description: "Building strong fundamentals for future competitive exams",
-    duration: "2 Years",
-    highlights: [
-      "Olympiad preparation",
-      "Concept visualization labs",
-      "Science projects",
-    ],
-  },
-  {
-    id: 4,
-    title: "Olympiad Excellence",
-    description: "Specialized training for international science olympiads",
-    duration: "1 Year",
-    highlights: [
-      "Problem-solving workshops",
-      "Previous IOQ papers",
-      "International exposure",
-    ],
-  },
-];
-
-const faqData = [
-  {
-    id: 1,
-    question: "What makes Diksha different from other coaching institutes?",
-    answer:
-      "Our unique teaching methodology combines concept visualization, application workshops, and continuous assessment. We maintain a 1:15 teacher-student ratio for personalized attention and have developed proprietary learning materials that simplify complex concepts.",
-  },
-  {
-    id: 2,
-    question: "Do you provide scholarships?",
-    answer:
-      "Yes, we offer merit-based scholarships up to 100% tuition fee waiver for top performers in our entrance test. We also have need-based scholarships for economically disadvantaged students. Over 35% of our students receive some form of financial assistance.",
-  },
-  {
-    id: 3,
-    question: "How are parents kept informed about progress?",
-    answer:
-      "We provide monthly performance reports, conduct quarterly parent-teacher meetings, and offer 24/7 access to our student portal with real-time progress tracking. Parents also receive SMS alerts about test schedules and important announcements.",
-  },
-  {
-    id: 4,
-    question: "What safety measures do you have?",
-    answer:
-      "Our campuses have CCTV surveillance, biometric attendance, dedicated female staff, and medical facilities. We follow strict protocols for student safety including background-verified staff, secure transportation options, and anti-bullying policies.",
-  },
-  {
-    id: 5,
-    question: "How do you handle different learning paces?",
-    answer:
-      "We use adaptive learning technology that customizes study plans based on individual progress. Our foundation program includes remedial classes for struggling students and advanced modules for quick learners, ensuring every student reaches their potential.",
-  },
-];
-
-const teamData = [
-  {
-    id: 1,
-    name: "Dr. Vikram Mehta",
-    role: "Physics Expert",
-    qualification: "PhD (IIT Delhi), 15+ years experience",
-    specialty: "Mechanics & Modern Physics",
-  },
-  {
-    id: 2,
-    name: "Prof. Anjali Rao",
-    role: "Chemistry HOD",
-    qualification: "MSc (IISc Bangalore), 12+ years experience",
-    specialty: "Organic Chemistry & Reaction Mechanisms",
-  },
-  {
-    id: 3,
-    name: "Dr. Rajesh Kumar",
-    role: "Mathematics Mentor",
-    qualification: "PhD (IIT Kanpur), 18+ years experience",
-    specialty: "Calculus & Algebra",
-  },
-  {
-    id: 4,
-    name: "Dr. Priya Singh",
-    role: "Biology Director",
-    qualification: "PhD (AIIMS), 14+ years experience",
-    specialty: "Genetics & Human Physiology",
-  },
-];
+const images = [img1, img2, img3, img4, img5, img6, img7, img8];
 
 // ========================== COMPONENT ==========================
 const Home = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [activeFaq, setActiveFaq] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(0); // <-- Move currentIndex here
+
+  // Auto-slide every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   const toggleFaq = (id) => {
     setActiveFaq(activeFaq === id ? null : id);
   };
 
+  // Hero data for the Hero section
+  const heroData = {
+    title: "Empowering Students for Success",
+    subtitle:
+      "Join Diksha Classes and unlock your true academic potential with expert guidance, personalized mentorship, and proven results.",
+    buttonText: "Get Started",
+  };
+
+  const featuresData = [
+    {
+      id: 1,
+      icon: "🎓",
+      title: "Expert Faculty",
+      desc: "PhD & IIT alumni with 10+ years of teaching experience",
+    },
+    {
+      id: 2,
+      icon: "📘",
+      title: "Personalized Learning",
+      desc: "Custom study plans and 1:1 mentorship sessions",
+    },
+    {
+      id: 3,
+      icon: "🏆",
+      title: "98% Success Rate",
+      desc: "Consistent top ranks in boards & competitive exams",
+    },
+    {
+      id: 4,
+      icon: "🏫",
+      title: "Modern Facilities",
+      desc: "Smart classrooms & advanced learning resources",
+    },
+  ];
+
+  const testimonialsData = [
+    {
+      id: 1,
+      image:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&h=200&q=80",
+      name: "Rahul Sharma",
+      role: "JEE Advanced 2023",
+      quote: "Diksha's faculty gave me conceptual clarity to secure AIR 287.",
+    },
+    {
+      id: 2,
+      image:
+        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&h=200&q=80",
+      name: "Priya Patel",
+      role: "NEET 2023",
+      quote: "Personalized mentorship improved my rank by 4000 positions.",
+    },
+    {
+      id: 3,
+      image:
+        "https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=200&h=200&q=80",
+      name: "Ananya Verma",
+      role: "Class 12 Boards",
+      quote: "Scored 98% in CBSE Boards with their study material & guidance.",
+    },
+    {
+      id: 4,
+      image:
+        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&h=200&q=80",
+      name: "Aryan Khanna",
+      role: "Class 10 Boards",
+      quote:
+        "Secured 97% with their comprehensive study material and doubt sessions.",
+    },
+    {
+      id: 5,
+      image:
+        "https://images.unsplash.com/photo-1567532939604-b6b5b0e1601d?auto=format&fit=crop&w=200&h=200&q=80",
+      name: "Neha Gupta",
+      role: "KVPY Scholar",
+      quote:
+        "The research guidance helped me secure KVPY fellowship with AIR 42.",
+    },
+    {
+      id: 6,
+      image:
+        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&h=200&q=80",
+      name: "Rohan Desai",
+      role: "JEE Mains 2023",
+      quote: "Improved from 85 to 99 percentile in just 6 months!",
+    },
+  ];
+
+  const galleryData = [
+    {
+      id: 1,
+      img: "https://images.pexels.com/photos/5212340/pexels-photo-5212340.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      alt: "Campus 1",
+    },
+    {
+      id: 2,
+      img: "https://images.pexels.com/photos/4145153/pexels-photo-4145153.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      alt: "Campus 2",
+    },
+    {
+      id: 3,
+      img: "https://images.pexels.com/photos/4144222/pexels-photo-4144222.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      alt: "Campus 3",
+    },
+  ];
+
+  const ctaData = {
+    title: "Ready to Transform Your Academic Journey?",
+    subtitle:
+      "Limited seats available for 2024-25 batch. Enroll now for exclusive benefits!",
+    buttons: [{ id: 2, text: "Schedule Campus Visit" }],
+  };
+
+  // NEW DATA SECTIONS
+  const ourStoryData = {
+    title: "Our Journey of Excellence",
+    description:
+      "Founded in 2008 , Diksha Classes has transformed from a small coaching center to a premier educational institution. Our mission is to democratize quality education through innovative teaching methodologies that make complex concepts accessible to all students.",
+    stats: [
+      { value: "15+", label: "Years of Excellence" },
+      { value: "10,000+", label: "Students Transformed" },
+      { value: "50+", label: "Expert Faculty" },
+      { value: "12", label: "Centers Nationwide" },
+    ],
+    image:
+      "https://images.pexels.com/photos/3184328/pexels-photo-3184328.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+  };
+
+  const coursesData = [
+    {
+      id: 1,
+      title: "JEE (Main + Advanced)",
+      description:
+        "Comprehensive program with 1000+ hours of intensive training",
+      duration: "2 Years",
+      highlights: [
+        "Daily practice tests",
+        "IIT alumni mentorship",
+        "AIR prediction tests",
+      ],
+    },
+    {
+      id: 2,
+      title: "NEET UG",
+      description: "Biology-focused curriculum with NCERT reinforcement",
+      duration: "2 Years",
+      highlights: [
+        "Special anatomy workshops",
+        "Medical professional interactions",
+        "Previous year paper analysis",
+      ],
+    },
+    {
+      id: 3,
+      title: "Foundation (Classes 9-10)",
+      description: "Building strong fundamentals for future competitive exams",
+      duration: "2 Years",
+      highlights: [
+        "Olympiad preparation",
+        "Concept visualization labs",
+        "Science projects",
+      ],
+    },
+    {
+      id: 4,
+      title: "Olympiad Excellence",
+      description: "Specialized training for international science olympiads",
+      duration: "1 Year",
+      highlights: [
+        "Problem-solving workshops",
+        "Previous IOQ papers",
+        "International exposure",
+      ],
+    },
+  ];
+
+  const faqData = [
+    {
+      id: 1,
+      question: "What makes Diksha different from other coaching institutes?",
+      answer:
+        "Our unique teaching methodology combines concept visualization, application workshops, and continuous assessment. We maintain a 1:15 teacher-student ratio for personalized attention and have developed proprietary learning materials that simplify complex concepts.",
+    },
+    {
+      id: 2,
+      question: "Do you provide scholarships?",
+      answer:
+        "Yes, we offer merit-based scholarships up to 100% tuition fee waiver for top performers in our entrance test. We also have need-based scholarships for economically disadvantaged students. Over 35% of our students receive some form of financial assistance.",
+    },
+    {
+      id: 3,
+      question: "How are parents kept informed about progress?",
+      answer:
+        "We provide monthly performance reports, conduct quarterly parent-teacher meetings, and offer 24/7 access to our student portal with real-time progress tracking. Parents also receive SMS alerts about test schedules and important announcements.",
+    },
+    {
+      id: 4,
+      question: "What safety measures do you have?",
+      answer:
+        "Our campuses have CCTV surveillance, biometric attendance, dedicated female staff, and medical facilities. We follow strict protocols for student safety including background-verified staff, secure transportation options, and anti-bullying policies.",
+    },
+    {
+      id: 5,
+      question: "How do you handle different learning paces?",
+      answer:
+        "We use adaptive learning technology that customizes study plans based on individual progress. Our foundation program includes remedial classes for struggling students and advanced modules for quick learners, ensuring every student reaches their potential.",
+    },
+  ];
+
+  const teamData = [
+    {
+      id: 1,
+      name: "Dr. Vikram Mehta",
+      role: "Physics Expert",
+      qualification: "PhD (IIT Delhi), 15+ years experience",
+      specialty: "Mechanics & Modern Physics",
+    },
+    {
+      id: 2,
+      name: "Prof. Anjali Rao",
+      role: "Chemistry HOD",
+      qualification: "MSc (IISc Bangalore), 12+ years experience",
+      specialty: "Organic Chemistry & Reaction Mechanisms",
+    },
+    {
+      id: 3,
+      name: "Dr. Rajesh Kumar",
+      role: "Mathematics Mentor",
+      qualification: "PhD (IIT Kanpur), 18+ years experience",
+      specialty: "Calculus & Algebra",
+    },
+    {
+      id: 4,
+      name: "Dr. Priya Singh",
+      role: "Biology Director",
+      qualification: "PhD (AIIMS), 14+ years experience",
+      specialty: "Genetics & Human Physiology",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-white font-sans">
       {/* Hero Section */}
-      <section
-        className="relative h-screen bg-cover bg-center flex items-center justify-center"
-        style={{ backgroundImage: `url('${heroData.bgImage}')` }}
-      >
+      <section className="relative h-screen bg-black flex items-center justify-center overflow-hidden">
+        {/* Background Slider */}
+        <AnimatePresence>
+          <motion.div
+            key={currentIndex}
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${images[currentIndex]})` }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2 }}
+          />
+        </AnimatePresence>
+
+        {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40" />
+
+        {/* Content */}
         <div className="relative z-10 text-center px-6">
           <motion.h1
             initial={{ opacity: 0, y: -30 }}
@@ -270,6 +304,7 @@ const Home = () => {
           >
             {heroData.title}
           </motion.h1>
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -278,6 +313,7 @@ const Home = () => {
           >
             {heroData.subtitle}
           </motion.p>
+
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

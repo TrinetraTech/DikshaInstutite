@@ -48,7 +48,15 @@ const Footer = () => (
           <div className="space-y-2 text-gray-300">
             <p>
               <FaMapMarkerAlt className="inline mr-2 text-yellow-400" />
-              Patna-14
+              <a
+                href="https://maps.app.goo.gl/7edLW1m4w7eswXq17"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-yellow-400"
+              >
+                Radhe Shyam Market, Akashwani Road, Near Passport Office,
+                Patna-14
+              </a>
             </p>
             <p>
               <FaPhoneAlt className="inline mr-2 text-yellow-400" />

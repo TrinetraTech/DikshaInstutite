@@ -54,8 +54,7 @@ const Footer = () => (
                 rel="noopener noreferrer"
                 className="hover:text-yellow-400"
               >
-                Radhe Shyam Market, Akashwani Road, Near Passport Office,
-                Patna-14
+                Radhe Shyam market near mundeshwari appartment akashwani road khojpura patna-14 
               </a>
             </p>
             <p>

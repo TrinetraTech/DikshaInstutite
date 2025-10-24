@@ -77,9 +77,7 @@ export default function Contact() {
                   Address
                 </h3>
                 <p className="text-gray-600">
-                  Radhe Shyam Market, Akashwani Road,
-                  <br />
-                  Near Passport Office, Patna-14
+                                  Radhe Shyam market near mundeshwari appartment akashwani road khojpura patna-14 
                 </p>
               </div>
             </div>
@@ -95,8 +93,6 @@ export default function Contact() {
                 </h3>
                 <p className="text-gray-600">
                   Mobile: 9955411119, 8294447675
-                  <br />
-                  Office: 8651738728
                 </p>
               </div>
             </div>

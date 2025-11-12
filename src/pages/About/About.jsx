@@ -256,8 +256,8 @@ const About = () => {
                   Visit Us
                 </h4>
                 <p className="text-gray-600">
-                  Radhe Shyam Market, Akashwani Road, Near Passport Office,
-                  Patna-14
+                  2nd floor radhe shyam market near mundeshwari appt. Aakashwani
+                  road khajpura patna-14
                 </p>
               </div>
             </a>

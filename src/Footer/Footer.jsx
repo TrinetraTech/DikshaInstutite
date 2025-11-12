@@ -54,7 +54,7 @@ const Footer = () => (
                 rel="noopener noreferrer"
                 className="hover:text-yellow-400"
               >
-                Radhe Shyam market near mundeshwari appartment akashwani road khojpura patna-14 
+                2nd floor radhe shyam market near mundeshwari appt. Aakashwani road khajpura patna-14
               </a>
             </p>
             <p>
@@ -77,7 +77,7 @@ const Footer = () => (
           <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
           <div className="flex space-x-4 text-2xl">
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/profile.php?id=100063611336405"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-yellow-400"
@@ -85,23 +85,23 @@ const Footer = () => (
               <FaFacebook />
             </a>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/diksha_class"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-yellow-400"
             >
               <FaInstagram />
             </a>
-            <a
+            {/* <a
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-yellow-400"
             >
               <FaTwitter />
-            </a>
+            </a> */}
             <a
-              href="https://youtube.com"
+              href="https://www.youtube.com/@dikshaclasses4256"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-red-500"

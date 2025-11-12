@@ -188,9 +188,9 @@ const Home = () => {
     },
     {
       id: 3,
-      title: "Foundation (Classes 9-10)",
+      title: "Pre-Foundation (Classes 6-10)",
       description: "Building strong fundamentals for future competitive exams",
-      duration: "2 Years",
+      duration: "4 Years",
       highlights: [
         "Olympiad preparation",
         "Concept visualization labs",

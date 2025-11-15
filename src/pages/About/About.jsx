@@ -234,7 +234,9 @@ const About = () => {
               <h4 className="text-lg font-semibold text-gray-900 mb-2">
                 Call Us
               </h4>
-              <p className="text-gray-600">+91 98765 43210</p>
+              <p className="text-gray-600">              <a href="tel:9955411119">
+                9955411119
+              </a></p>
             </div>
 
             <div className="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow">

@@ -8,14 +8,46 @@
   </head>
 
   <body>
-    <form name="contact" method="POST" data-netlify="true" hidden>
-  <input type="hidden" name="form-name" value="contact" />
-  <input name="firstName" />
-  <input name="lastName" />
-  <input name="email" />
-  <input name="phone" />
-  <textarea name="message"></textarea>
-</form>
+    <!-- ================= CONTACT FORM FALLBACK ================= -->
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      hidden
+    >
+      <input type="hidden" name="form-name" value="contact" />
+
+      <!-- Honeypot -->
+      <input name="bot-field" />
+
+      <input name="firstName" />
+      <input name="lastName" />
+      <input name="email" />
+      <input name="phone" />
+      <textarea name="message"></textarea>
+    </form>
+
+    <!-- ================= ENQUIRY FORM FALLBACK ================= -->
+    <form
+      name="enquiry"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      hidden
+    >
+      <input type="hidden" name="form-name" value="enquiry" />
+
+      <!-- Honeypot -->
+      <input name="bot-field" />
+
+      <input name="firstName" />
+      <input name="lastName" />
+      <input name="phone" />
+      <input name="class" />
+      <input name="userType" />
+      <textarea name="message"></textarea>
+    </form>
     <div id="root"></div>
 
     <script type="module" src="/src/main.jsx"></script>

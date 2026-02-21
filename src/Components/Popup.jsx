@@ -22,29 +22,56 @@ const PopupForm = ({ onClose }) => {
           we’ll get back to you within 24 hours.
         </p>
 
-        {/* Form Section */}
-        <form className="mt-4 space-y-3">
+        {/* /// Contact Form */}
+        <form
+          name="enquiry"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          className="mt-4 space-y-3"
+        >
+          {/* REQUIRED */}
+          <input type="hidden" name="form-name" value="enquiry" />
+
+          {/* Honeypot */}
+          <p hidden>
+            <label>
+              Don’t fill this:
+              <input name="bot-field" />
+            </label>
+          </p>
+
           <div className="flex flex-col sm:flex-row gap-3">
             <input
               type="text"
+              name="firstName"
               placeholder="First name"
-              className="flex-1 border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+              required
+              className="flex-1 border border-gray-300 rounded-lg p-2 text-sm"
             />
+
             <input
               type="text"
+              name="lastName"
               placeholder="Last name"
-              className="flex-1 border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+              required
+              className="flex-1 border border-gray-300 rounded-lg p-2 text-sm"
             />
           </div>
 
           <input
             type="tel"
-            placeholder="+1 (555) 444-0000"
-            className="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+            name="phone"
+            placeholder="+91 9876543210"
+            required
+            className="w-full border border-gray-300 rounded-lg p-2 text-sm"
           />
 
-          {/* Dropdown: Class Selection */}
-          <select className="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+          <select
+            name="class"
+            required
+            className="w-full border border-gray-300 rounded-lg p-2 text-sm"
+          >
             <option value="">Select Class</option>
             <option value="6">6th</option>
             <option value="7">7th</option>
@@ -55,18 +82,22 @@ const PopupForm = ({ onClose }) => {
             <option value="12">12th</option>
           </select>
 
-          {/* Dropdown: Who is filling the form */}
-          <select className="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+          <select
+            name="userType"
+            required
+            className="w-full border border-gray-300 rounded-lg p-2 text-sm"
+          >
             <option value="">Who is filling the form?</option>
             <option value="parent">Parent</option>
             <option value="student">Student</option>
           </select>
 
           <textarea
+            name="message"
             placeholder="Type your message"
             rows="3"
-            className="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-          ></textarea>
+            className="w-full border border-gray-300 rounded-lg p-2 text-sm"
+          />
 
           <button
             type="submit"

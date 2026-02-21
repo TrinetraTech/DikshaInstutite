@@ -3,43 +3,14 @@ import React, { useState, useEffect } from "react"; // <-- Add useEffect import
 import { motion, AnimatePresence } from "framer-motion"; // <-- Add AnimatePresence import
 import ContactPopup from "../../Components/ContactPopup";
 
-// Import your images
-import img1 from "../../assets/img/img1.jpeg"; // <-- Fix image import paths
-import img2 from "../../assets/img/img2.jpeg";
-import img3 from "../../assets/img/img3.jpeg";
-import img4 from "../../assets/img/img4.jpeg";
-import img5 from "../../assets/img/img5.jpeg";
-import img6 from "../../assets/img/img6.jpeg";
-import img7 from "../../assets/img/img7.jpeg";
-import img8 from "../../assets/img/img8.jpeg";
-
-// ========================== DATA ==========================
-const images = [img1, img2, img3, img4, img5, img6, img7, img8];
-
 // ========================== COMPONENT ==========================
 const Home = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [activeFaq, setActiveFaq] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0); // <-- Move currentIndex here
 
-  // Auto-slide every 5 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
   const toggleFaq = (id) => {
     setActiveFaq(activeFaq === id ? null : id);
-  };
-
-  // Hero data for the Hero section
-  const heroData = {
-    title: "Empowering Students for Success",
-    subtitle:
-      "Join Diksha Classes and unlock your true academic potential with expert guidance, personalized mentorship, and proven results.",
-    buttonText: "Get Started",
   };
 
   const featuresData = [
@@ -243,87 +214,71 @@ const Home = () => {
     },
   ];
 
-  const teamData = [
-    {
-      id: 1,
-      name: "Dr. Vikram Mehta",
-      role: "Physics Expert",
-      qualification: "PhD (IIT Delhi), 15+ years experience",
-      specialty: "Mechanics & Modern Physics",
-    },
-    {
-      id: 2,
-      name: "Prof. Anjali Rao",
-      role: "Chemistry HOD",
-      qualification: "MSc (IISc Bangalore), 12+ years experience",
-      specialty: "Organic Chemistry & Reaction Mechanisms",
-    },
-    {
-      id: 3,
-      name: "Dr. Rajesh Kumar",
-      role: "Mathematics Mentor",
-      qualification: "PhD (IIT Kanpur), 18+ years experience",
-      specialty: "Calculus & Algebra",
-    },
-    {
-      id: 4,
-      name: "Dr. Priya Singh",
-      role: "Biology Director",
-      qualification: "PhD (AIIMS), 14+ years experience",
-      specialty: "Genetics & Human Physiology",
-    },
-  ];
+  // ✅ CMS HERO DATA
+  const [slides, setSlides] = useState([]);
+
+  useEffect(() => {
+    fetch("/content/hero.json")
+      .then((res) => res.json())
+      .then((data) => setSlides(data.slides))
+      .catch((err) => console.error("CMS Hero Load Error:", err));
+  }, []);
+
+  useEffect(() => {
+    if (!slides.length) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % slides.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [slides]);
+  const [teamData, setTeamData] = useState([]);
+
+  useEffect(() => {
+    fetch("/content/team.json")
+      .then((res) => res.json())
+      .then((data) => setTeamData(data.members))
+      .catch((err) => console.error("CMS Team Load Error:", err));
+  }, []);
 
   return (
     <div className="min-h-screen bg-white font-sans">
-      {/* Hero Section */}
-      <section className="relative h-screen bg-black flex items-center justify-center overflow-hidden">
-        {/* Background Slider */}
-        <AnimatePresence>
-          <motion.div
-            key={currentIndex}
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${images[currentIndex]})` }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.2 }}
-          />
-        </AnimatePresence>
+      {/* HERO SECTION */}
+      {slides.length > 0 && (
+        <section className="relative h-screen bg-black flex items-center justify-center overflow-hidden">
+          <AnimatePresence>
+            <motion.div
+              key={currentIndex}
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${slides[currentIndex]?.image})` }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.2 }}
+            />
+          </AnimatePresence>
 
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40" />
 
-        {/* Content */}
-        <div className="relative z-10 text-center px-6">
-          <motion.h1
-            initial={{ opacity: 0, y: -30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-4xl md:text-6xl font-extrabold text-white leading-tight drop-shadow-lg"
-          >
-            {heroData.title}
-          </motion.h1>
+          <div className="relative z-10 text-center px-6">
+            <motion.h1 className="text-4xl md:text-6xl font-extrabold text-white">
+              {slides[currentIndex]?.title}
+            </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-lg md:text-2xl text-gray-200 mt-6 mb-10 max-w-2xl mx-auto"
-          >
-            {heroData.subtitle}
-          </motion.p>
+            <motion.p className="text-lg md:text-2xl text-gray-200 mt-6 mb-10">
+              {slides[currentIndex]?.subtitle}
+            </motion.p>
 
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setShowPopup(true)}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg transition"
-          >
-            {heroData.buttonText}
-          </motion.button>
-        </div>
-      </section>
+            <motion.button
+              onClick={() => setShowPopup(true)}
+              className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-full"
+            >
+              {slides[currentIndex]?.buttonText}
+            </motion.button>
+          </div>
+        </section>
+      )}
 
       {/* Features Section */}
       <section className="py-20 px-6 bg-gradient-to-br from-blue-50 to-indigo-50">
@@ -348,56 +303,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-      {/* Our Story Section
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <img 
-                src={ourStoryData.image} 
-                alt="Our Story" 
-                className="rounded-2xl shadow-xl w-full"
-              />
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-                {ourStoryData.title}
-              </h2>
-              <p className="text-gray-600 text-lg mb-8">
-                {ourStoryData.description}
-              </p>
-              
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                {ourStoryData.stats.map((stat, index) => (
-                  <div key={index} className="text-center p-4 bg-indigo-50 rounded-lg">
-                    <div className="text-3xl font-bold text-indigo-600">{stat.value}</div>
-                    <div className="text-gray-700">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-              
-              <button 
-                onClick={() => setShowPopup(true)}
-                className="mt-8 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition"
-              >
-                Learn More About Us
-              </button>
-            </motion.div>
-          </div>
-        </div>
-      </section> */}
 
       <section className="py-20 px-6 bg-white overflow-x-hidden">
         <div className="max-w-7xl mx-auto">
@@ -558,20 +463,27 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {teamData.map((member) => (
               <motion.div
-                key={member.id}
                 whileHover={{ y: -10 }}
                 className="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition"
               >
-                <div className="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16 mx-auto mb-4" />
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-16 h-16 mx-auto mb-4 rounded-xl object-cover"
+                />
+
                 <h3 className="text-xl font-bold text-gray-800">
                   {member.name}
                 </h3>
+
                 <p className="text-indigo-600 font-semibold mb-2">
                   {member.role}
                 </p>
+
                 <p className="text-gray-600 text-sm mb-3">
                   {member.qualification}
                 </p>
+
                 <p className="text-gray-700 bg-indigo-50 px-3 py-1 rounded-full text-sm inline-block">
                   {member.specialty}
                 </p>

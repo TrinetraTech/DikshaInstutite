@@ -2,6 +2,9 @@
   "notes": [
     {
       "title": "Chapter 1",
+      "class": 10,
+      "subject": "Math",
+      "description": "Important algebra concepts",
       "file": "/notes/chapter1.pdf"
     }
   ]

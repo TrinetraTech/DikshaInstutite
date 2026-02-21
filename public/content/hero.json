@@ -1,0 +1,16 @@
+{
+  "slides": [
+    {
+      "image": "/images/hero/slide1.jpeg",
+      "title": "Welcome to Diksha Classes",
+      "subtitle": "Shaping Futures with Excellence",
+      "buttonText": "Explore Courses"
+    },
+    {
+      "image": "/images/hero/slide2.jpeg",
+      "title": "IIT-JEE & NEET Preparation",
+      "subtitle": "Expert Faculty & Proven Results",
+      "buttonText": "View Programs"
+    }
+  ]
+}

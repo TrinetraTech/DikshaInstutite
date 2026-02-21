@@ -1,0 +1,17 @@
+{
+  "items": [
+    { "type": "photo", "src": "/images/gallery/img1.jpeg" },
+    { "type": "photo", "src": "/images/gallery/img2.jpeg" },
+    { "type": "photo", "src": "/images/gallery/img3.jpeg" },
+    { "type": "photo", "src": "/images/gallery/img4.jpeg" },
+    { "type": "photo", "src": "/images/gallery/img5.jpeg" },
+    { "type": "photo", "src": "/images/gallery/img6.jpeg" },
+    { "type": "photo", "src": "/images/gallery/img7.jpeg" },
+    { "type": "photo", "src": "/images/gallery/img8.jpeg" },
+
+    { 
+      "type": "video",
+      "src": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    }
+  ]
+}

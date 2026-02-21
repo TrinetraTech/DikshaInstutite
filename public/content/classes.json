@@ -1,0 +1,32 @@
+{
+  "classes": [
+    {
+      "title": "IIT-JEE",
+      "icon": "🧮",
+      "description": "Intensive coaching for engineering aspirants covering Physics, Chemistry, and Mathematics. Designed for Class XI, XII students and droppers with comprehensive study material and regular assessments.",
+      "level": "XI–XII & Droppers",
+      "category": "IIT-JEE"
+    },
+    {
+      "title": "NEET",
+      "icon": "🔬",
+      "description": "Focused preparatory courses for medical entrances covering Physics, Chemistry, and Biology. Specially designed curriculum to crack NEET with high scores and secure admission in top medical colleges.",
+      "level": "XI–XII & Droppers",
+      "category": "NEET"
+    },
+    {
+      "title": "Foundation (XI & XII)",
+      "icon": "📘",
+      "description": "Strong foundation courses for Class XI and XII students focusing on board exam preparation along with competitive exam readiness. Perfect blend of conceptual learning and practical application.",
+      "level": "XI–XII",
+      "category": "Foundation"
+    },
+    {
+      "title": "Pre-Foundation (VII–X)",
+      "icon": "🎯",
+      "description": "Building strong basics for Classes VII, VIII, IX & X students. Preparation for Olympiads, NTSE, and future entrance exams with emphasis on fundamental concepts and problem-solving skills.",
+      "level": "VII–X",
+      "category": "Pre-Foundation"
+    }
+  ]
+}

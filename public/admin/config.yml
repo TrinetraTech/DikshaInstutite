@@ -21,6 +21,8 @@ collections:
             fields:
               - { label: "Name", name: "name", widget: string }
               - { label: "Role", name: "role", widget: string }
+              - { label: "Qualification", name: "qualification", widget: string }
+              - { label: "Specialty", name: "specialty", widget: string }
               - { label: "Image", name: "image", widget: image }
 
   - name: "notes"
@@ -36,4 +38,84 @@ collections:
             widget: list
             fields:
               - { label: "Title", name: "title", widget: string }
+              - { label: "Class", name: "class", widget: number }
+              - { label: "Subject", name: "subject", widget: string }
+              - { label: "Description", name: "description", widget: text }
               - { label: "File", name: "file", widget: file }
+
+  - name: "classes"
+    label: "Classes / Courses"
+    files:
+      - file: "public/content/classes.json"
+        label: "Classes"
+        name: "classes"
+        format: json
+        fields:
+          - label: "Classes List"
+            name: "classes"
+            widget: list
+            fields:
+              - { label: "Title", name: "title", widget: string }
+              - { label: "Icon", name: "icon", widget: string }
+              - { label: "Level", name: "level", widget: string }
+              - { label: "Category", name: "category", widget: string }
+              - { label: "Description", name: "description", widget: text }
+  - name: "gallery"
+    label: "Gallery"
+    files:
+      - file: "public/content/gallery.json"
+        label: "Gallery Items"
+        name: "gallery"
+        format: json
+        fields:
+          - label: "Media Items"
+            name: "items"
+            widget: list
+            fields:
+              - { 
+                  label: "Type",
+                  name: "type",
+                  widget: select,
+                  options: ["photo", "video"]
+                }
+              - { 
+                  label: "Source",
+                  name: "src",
+                  widget: string
+                }
+
+  - name: "hero"
+    label: "Hero Slider"
+    files:
+      - file: "public/content/hero.json"
+        label: "Hero Slides"
+        name: "hero"
+        format: json
+        fields:
+          - label: "Slides"
+            name: "slides"
+            widget: list
+            fields:
+              - { label: "Image", name: "image", widget: image }
+              - { label: "Title", name: "title", widget: string }
+              - { label: "Subtitle", name: "subtitle", widget: string }
+              - { label: "Button Text", name: "buttonText", widget: string }
+
+  - name: "blog"
+    label: "Blog"
+    files:
+      - file: "public/content/blog.json"
+        label: "Blog Posts"
+        name: "blog"
+        format: json
+        fields:
+          - label: "Posts"
+            name: "posts"
+            widget: list
+            fields:
+              - { label: "Title", name: "title", widget: string }
+              - { label: "Date", name: "date", widget: string }
+              - { label: "Author", name: "author", widget: string }
+              - { label: "Image", name: "image", widget: image }
+              - { label: "Excerpt", name: "excerpt", widget: text }
+              - { label: "Content", name: "content", widget: text }

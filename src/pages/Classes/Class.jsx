@@ -1,55 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ContactPopup from "../../Components/ContactPopup";
 
 const Classes = () => {
+  const [classesData, setClassesData] = useState([]);
   const [activeCategory, setActiveCategory] = useState("All");
   const [showPopup, setShowPopup] = useState(false);
 
-  // Real class data
-  const classes = [
-    {
-      id: 1,
-      title: "IIT-JEE",
-      icon: "🧮",
-      description:
-        "Intensive coaching for engineering aspirants covering Physics, Chemistry, and Mathematics. Designed for Class XI, XII students and droppers with comprehensive study material and regular assessments.",
-      level: "XI–XII & Droppers",
-      category: "IIT-JEE",
-    },
-    {
-      id: 2,
-      title: "NEET",
-      icon: "🔬",
-      description:
-        "Focused preparatory courses for medical entrances covering Physics, Chemistry, and Biology. Specially designed curriculum to crack NEET with high scores and secure admission in top medical colleges.",
-      level: "XI–XII & Droppers",
-      category: "NEET",
-    },
-    {
-      id: 3,
-      title: "Foundation (XI & XII)",
-      icon: "📘",
-      description:
-        "Strong foundation courses for Class XI and XII students focusing on board exam preparation along with competitive exam readiness. Perfect blend of conceptual learning and practical application.",
-      level: "XI–XII",
-      category: "Foundation",
-    },
-    {
-      id: 4,
-      title: "Pre-Foundation (VII–X)",
-      icon: "🎯",
-      description:
-        "Building strong basics for Classes VII, VIII, IX & X students. Preparation for Olympiads, NTSE, and future entrance exams with emphasis on fundamental concepts and problem-solving skills.",
-      level: "VII–X",
-      category: "Pre-Foundation",
-    },
+  // ✅ Load CMS Data
+  useEffect(() => {
+    fetch("/content/classes.json")
+      .then((res) => res.json())
+      .then((data) => setClassesData(data.classes))
+      .catch((err) => console.error("CMS Classes Load Error:", err));
+  }, []);
+
+  // ✅ Dynamic Categories
+  const categories = [
+    "All",
+    ...new Set(classesData.map((cls) => cls.category)),
   ];
 
-  const categories = ["All", "IIT-JEE", "NEET", "Foundation", "Pre-Foundation"];
+  // ✅ Filtering Logic
   const filteredClasses =
     activeCategory === "All"
-      ? classes
-      : classes.filter((cls) => cls.category === activeCategory);
+      ? classesData
+      : classesData.filter((cls) => cls.category === activeCategory);
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800">
@@ -57,28 +32,30 @@ const Classes = () => {
       <section className="relative py-20 md:py-32">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 opacity-90"></div>
         <div className="container mx-auto px-4 relative z-10 text-center text-white">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-down">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4">
             Discover Our Classes
           </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto animate-fade-in-down animate-delay-100">
+          <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
             Expand your knowledge with our diverse course offerings
           </p>
           <button
             onClick={() => setShowPopup(true)}
-            className="bg-white text-blue-700 px-8 py-3 rounded-full font-bold shadow-lg hover:bg-blue-50 transform hover:-translate-y-1 transition duration-300 animate-fade-in-up animate-delay-200"
+            className="bg-white text-blue-700 px-8 py-3 rounded-full font-bold shadow-lg hover:bg-blue-50 transform hover:-translate-y-1 transition duration-300"
           >
             Browse All Classes
           </button>
         </div>
       </section>
 
-      {/* All Classes */}
+      {/* Classes Section */}
       <section className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">All Classes</h2>
+
+            {/* Filters */}
             <div className="mb-6">
-              {/* Web / Large Screen Buttons */}
+              {/* Desktop Buttons */}
               <div className="hidden md:flex justify-center space-x-4">
                 {categories.map((category) => (
                   <button
@@ -95,7 +72,7 @@ const Classes = () => {
                 ))}
               </div>
 
-              {/* Mobile / Small Screen Dropdown */}
+              {/* Mobile Dropdown */}
               <div className="md:hidden flex justify-center">
                 <select
                   value={activeCategory}
@@ -112,10 +89,11 @@ const Classes = () => {
             </div>
           </div>
 
+          {/* Classes Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredClasses.map((cls) => (
+            {filteredClasses.map((cls, index) => (
               <div
-                key={cls.id}
+                key={index}
                 className="rounded-xl shadow-lg overflow-hidden transition-transform hover:-translate-y-1 bg-white"
               >
                 <div className="p-6">
@@ -126,16 +104,15 @@ const Classes = () => {
                       <p className="text-sm mb-3 text-gray-600">{cls.level}</p>
                     </div>
                   </div>
+
                   <p className="mb-4 text-gray-600">{cls.description}</p>
-                  <div className="flex justify-between items-center">
-                    {/* Enroll Button */}
-                    <button
-                      onClick={() => setShowPopup(true)}
-                      className="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-blue-700 transition-colors shadow-lg"
-                    >
-                      Enroll
-                    </button>
-                  </div>
+
+                  <button
+                    onClick={() => setShowPopup(true)}
+                    className="bg-blue-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-700 transition-colors"
+                  >
+                    Enroll
+                  </button>
                 </div>
               </div>
             ))}
@@ -143,7 +120,7 @@ const Classes = () => {
         </div>
       </section>
 
-      {/* Popup Modal (Full Screen) */}
+      {/* Popup */}
       {showPopup && <ContactPopup onClose={() => setShowPopup(false)} />}
     </div>
   );

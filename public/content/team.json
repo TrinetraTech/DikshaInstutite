@@ -1,9 +1,11 @@
 {
   "members": [
     {
-      "name": "Rahul Sharma",
-      "role": "Physics Teacher",
-      "image": "/images/rahul.jpg"
+      "name": "Dr. Vikram Mehta",
+      "role": "Physics Expert",
+      "qualification": "PhD (IIT Delhi), 15+ years experience",
+      "specialty": "Mechanics & Modern Physics",
+      "image": "/images/vikram.jpg"
     }
   ]
 }

@@ -27,7 +27,7 @@ const Sidebar = () => {
   const links = [
     { to: "/student/dashboard", icon: <FiHome />, label: "Dashboard" },
     { to: "/student/notes", icon: <FiFileText />, label: "Notes" },
-    { to: "/", icon: <FiSettings />, label: "Log Out" },
+    { to: "/", icon: <FiSettings />, label: "Exit" },
   ];
 
   return (

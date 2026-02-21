@@ -1,0 +1,39 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+
+  - name: "team"
+    label: "Team Members"
+    files:
+      - file: "public/content/team.json"
+        label: "Team"
+        name: "team"
+        format: json
+        fields:
+          - label: "Members"
+            name: "members"
+            widget: list
+            fields:
+              - { label: "Name", name: "name", widget: string }
+              - { label: "Role", name: "role", widget: string }
+              - { label: "Image", name: "image", widget: image }
+
+  - name: "notes"
+    label: "Student Notes"
+    files:
+      - file: "public/content/notes.json"
+        label: "Notes"
+        name: "notes"
+        format: json
+        fields:
+          - label: "Notes List"
+            name: "notes"
+            widget: list
+            fields:
+              - { label: "Title", name: "title", widget: string }
+              - { label: "File", name: "file", widget: file }

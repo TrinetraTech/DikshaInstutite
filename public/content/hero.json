@@ -11,6 +11,18 @@
       "title": "IIT-JEE & NEET Preparation",
       "subtitle": "Expert Faculty & Proven Results",
       "buttonText": "View Programs"
+    },
+    {
+      "image": "/images/website-cost-patna.png",
+      "title": "this is title",
+      "subtitle": "this is  subtitle",
+      "buttonText": "enroll"
+    },
+    {
+      "title": "slide 2 ",
+      "subtitle": "sutitle 2 ",
+      "buttonText": "sutitle 2 ",
+      "image": "https://miro.medium.com/v2/resize:fit:1080/1*8DDN_DRuSBlM74dVYUjR9Q.png"
     }
   ]
 }

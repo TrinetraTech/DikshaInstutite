@@ -43,6 +43,10 @@
     {
       "type": "photo",
       "src": "/images/website-cost-patna.png"
+    },
+    {
+      "type": "video",
+      "src": "https://www.youtube.com/embed/JBNne3YVZfE"
     }
   ]
 }

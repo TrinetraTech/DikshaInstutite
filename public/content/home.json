@@ -1,0 +1,153 @@
+{
+  "hero": [
+    {
+      "title": "Unlock Your True Academic Potential",
+      "subtitle": "India's Most Trusted Coaching Institute for JEE, NEET & Boards",
+      "buttonText": "Enroll Now",
+      "image": "/images/hero/slide1.jpeg"
+    },
+    {
+      "title": "Excellence Through Innovation",
+      "subtitle": "Concept-Based Learning with Proven Results",
+      "buttonText": "Explore Programs",
+      "image": "/images/hero/slide2.jpeg"
+    }
+  ],
+
+  "featuresSection": {
+    "title": "Why Choose Diksha Classes",
+    "highlightText": "Diksha Classes",
+    "features": [
+      {
+        "icon": "🎓",
+        "title": "Expert Faculty",
+        "desc": "PhD & IIT alumni with 10+ years of teaching experience"
+      },
+      {
+        "icon": "📘",
+        "title": "Personalized Learning",
+        "desc": "Custom study plans and 1:1 mentorship sessions"
+      },
+      {
+        "icon": "🏆",
+        "title": "98% Success Rate",
+        "desc": "Consistent top ranks in boards & competitive exams"
+      },
+      {
+        "icon": "🏫",
+        "title": "Modern Facilities",
+        "desc": "Smart classrooms & advanced learning resources"
+      }
+    ]
+  },
+
+  "ourStory": {
+    "title": "Our Journey of Excellence",
+    "description": "Founded in 2008, Diksha Classes has transformed from a small coaching center to a premier educational institution. Our mission is to democratize quality education through innovative teaching methodologies that make complex concepts accessible to all students.",
+    "image": "https://images.pexels.com/photos/3184328/pexels-photo-3184328.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    "stats": [
+      { "value": "15+", "label": "Years of Excellence" },
+      { "value": "10,000+", "label": "Students Transformed" },
+      { "value": "50+", "label": "Expert Faculty" },
+      { "value": "12", "label": "Centers Nationwide" }
+    ],
+    "buttonText": "Learn More About Us"
+  },
+
+  "testimonialsSection": {
+    "title": "Student Success Stories",
+    "subtitle": "Hear from students who turned their dreams into reality with us.",
+    "testimonials": [
+      {
+        "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&h=200&q=80",
+        "name": "Rahul Sharma",
+        "role": "JEE Advanced 2023",
+        "quote": "Diksha's faculty gave me conceptual clarity to secure AIR 287."
+      },
+      {
+        "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&h=200&q=80",
+        "name": "Priya Patel",
+        "role": "NEET 2023",
+        "quote": "Personalized mentorship improved my rank by 4000 positions."
+      },
+      {
+        "image": "https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=200&h=200&q=80",
+        "name": "Ananya Verma",
+        "role": "Class 12 Boards",
+        "quote": "Scored 98% in CBSE Boards with their study material & guidance."
+      }
+    ]
+  },
+
+  "coursesSection": {
+    "title": "Our Premier Programs",
+    "subtitle": "Specialized courses designed for maximum academic impact",
+    "courses": [
+      {
+        "title": "JEE (Main + Advanced)",
+        "description": "Comprehensive program with 1000+ hours of intensive training",
+        "duration": "2 Years",
+        "highlights": [
+          "Daily practice tests",
+          "IIT alumni mentorship",
+          "AIR prediction tests"
+        ],
+        "buttonText": "Request Syllabus"
+      },
+      {
+        "title": "NEET UG",
+        "description": "Biology-focused curriculum with NCERT reinforcement",
+        "duration": "2 Years",
+        "highlights": [
+          "Special anatomy workshops",
+          "Medical professional interactions",
+          "Previous year paper analysis"
+        ],
+        "buttonText": "Request Syllabus"
+      }
+    ]
+  },
+
+  "gallerySection": {
+    "title": "Our Learning Environment",
+    "gallery": [
+      {
+        "img": "https://images.pexels.com/photos/5212340/pexels-photo-5212340.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "alt": "Campus 1"
+      },
+      {
+        "img": "https://images.pexels.com/photos/4145153/pexels-photo-4145153.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "alt": "Campus 2"
+      },
+      {
+        "img": "https://images.pexels.com/photos/4144222/pexels-photo-4144222.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "alt": "Campus 3"
+      }
+    ]
+  },
+
+  "faqSection": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Get answers to common questions about our programs and admission process",
+    "faqs": [
+      {
+        "question": "What makes Diksha different from other coaching institutes?",
+        "answer": "Our unique teaching methodology combines concept visualization, application workshops, and continuous assessment. We maintain a 1:15 teacher-student ratio for personalized attention."
+      },
+      {
+        "question": "Do you provide scholarships?",
+        "answer": "Yes, we offer merit-based scholarships up to 100% tuition fee waiver for top performers in our entrance test."
+      }
+    ],
+    "bottomText": "Still have questions? Our admission counselors are ready to help",
+    "buttonText": "Contact Admissions"
+  },
+
+  "ctaSection": {
+    "title": "Ready to Transform Your Academic Journey?",
+    "subtitle": "Limited seats available for 2024-25 batch. Enroll now for exclusive benefits!",
+    "buttons": [
+      { "text": "Schedule Campus Visit" }
+    ]
+  }
+}

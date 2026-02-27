@@ -6,6 +6,104 @@ media_folder: "public/images"
 public_folder: "/images"
 
 collections:
+  - name: "home"
+    label: "Home Page"
+    files:
+      - file: "public/content/home.json"
+        label: "Home Content"
+        name: "home"
+        format: "json"
+        fields:
+
+          # HERO
+          - label: "Hero Slides"
+            name: "hero"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "text" }
+              - { label: "Button Text", name: "buttonText", widget: "string" , required: false }
+              - { label: "Background Image", name: "image", widget: "image" }
+
+          # FEATURES
+          - label: "Features Section Title"
+            name: "featuresTitle"
+            widget: "string"
+
+          - label: "Features"
+            name: "features"
+            widget: "list"
+            fields:
+              - { label: "Icon (Emoji)", name: "icon", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "desc", widget: "text" }
+
+          # OUR STORY
+          - label: "Our Story"
+            name: "ourStory"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Image", name: "image", widget: "image" }
+              - label: "Stats"
+                name: "stats"
+                widget: "list"
+                fields:
+                  - { label: "Value", name: "value", widget: "string" }
+                  - { label: "Label", name: "label", widget: "string" }
+
+          # TESTIMONIALS
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Quote", name: "quote", widget: "text" }
+              - { label: "Image", name: "image", widget: "image" }
+
+          # COURSES
+          - label: "Courses"
+            name: "courses"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Duration", name: "duration", widget: "string" }
+              - label: "Highlights"
+                name: "highlights"
+                widget: "list"
+                field: { label: "Highlight", name: "highlight", widget: "string" }
+
+          # GALLERY
+          - label: "Gallery"
+            name: "gallery"
+            widget: "list"
+            fields:
+              - { label: "Image", name: "img", widget: "image" }
+              - { label: "Alt Text", name: "alt", widget: "string" }
+
+          # FAQ
+          - label: "FAQs"
+            name: "faq"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
+
+          # CTA
+          - label: "CTA Section"
+            name: "cta"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "text" }
+              - label: "Buttons"
+                name: "buttons"
+                widget: "list"
+                fields:
+                  - { label: "Button Text", name: "text", widget: "string" }
 
   - name: "team"
     label: "Team Members"
@@ -56,10 +154,11 @@ collections:
             widget: list
             fields:
               - { label: "Title", name: "title", widget: string }
-              - { label: "Icon", name: "icon", widget: string }
+              - { label: "Icon", name: "icon", widget: string , required: false }
               - { label: "Level", name: "level", widget: string }
               - { label: "Category", name: "category", widget: string }
               - { label: "Description", name: "description", widget: text }
+
   - name: "gallery"
     label: "Gallery"
     files:
@@ -72,17 +171,28 @@ collections:
             name: "items"
             widget: list
             fields:
-              - { 
-                  label: "Type",
-                  name: "type",
-                  widget: select,
-                  options: ["photo", "video"]
-                }
-              - { 
-                  label: "Source",
-                  name: "src",
-                  widget: string
-                }
+              - label: "Type"
+                name: "type"
+                widget: "select"
+                options:
+                  - { label: "Photo", value: "photo" }
+                  - { label: "Video", value: "video" }
+
+              - label: "Video Source"
+                name: "src"
+                widget: "string"
+                required: false
+                conditional:
+                  field: type
+                  value: video
+
+              - label: "Image"
+                name: "image"
+                widget: "image"
+                required: false
+                conditional:
+                  field: type
+                  value: photo
 
   - name: "hero"
     label: "Hero Slider"
@@ -119,3 +229,62 @@ collections:
               - { label: "Image", name: "image", widget: image }
               - { label: "Excerpt", name: "excerpt", widget: text }
               - { label: "Content", name: "content", widget: text }
+
+
+
+
+
+  - name: "dashboard"
+    label: "Student Dashboard"
+    files:
+      - file: "public/content/dashboard.json"
+        label: "Dashboard Content"
+        name: "dashboard"
+        format: "json"
+        fields:
+          - label: "Main Title"
+            name: "title"
+            widget: "string"
+
+          - label: "Subtitle"
+            name: "subtitle"
+            widget: "string"
+
+          - label: "Notices"
+            name: "notices"
+            widget: "list"
+            summary: "{{fields.title}} - {{fields.date}}"
+            fields:
+              - label: "Notice Title"
+                name: "title"
+                widget: "string"
+
+              - label: "Date"
+                name: "date"
+                widget: "datetime"
+
+              - label: "Description"
+                name: "description"
+                widget: "text"
+
+              - label: "Upload File (PDF or Image)"
+                name: "file"
+                widget: "file"
+                required: false
+
+              - label: "Show in Dashboard?"
+                name: "showInDashboard"
+                widget: "boolean"
+                default: true
+
+              - label: "Show in Homepage Marquee?"
+                name: "showInMarquee"
+                widget: "boolean"
+                default: false
+
+              - label: "Marquee Priority (Higher = First)"
+                name: "marqueePriority"
+                widget: "number"
+                required: false
+                value_type: "int"
+                min: 0

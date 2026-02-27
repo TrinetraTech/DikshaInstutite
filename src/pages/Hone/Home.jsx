@@ -1,239 +1,26 @@
-// Home.jsx
-import React, { useState, useEffect } from "react"; // <-- Add useEffect import
-import { motion, AnimatePresence } from "framer-motion"; // <-- Add AnimatePresence import
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import ContactPopup from "../../Components/ContactPopup";
 
-// ========================== COMPONENT ==========================
 const Home = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [activeFaq, setActiveFaq] = useState(null);
-  const [currentIndex, setCurrentIndex] = useState(0); // <-- Move currentIndex here
-
-  const toggleFaq = (id) => {
-    setActiveFaq(activeFaq === id ? null : id);
-  };
-
-  const featuresData = [
-    {
-      id: 1,
-      icon: "🎓",
-      title: "Expert Faculty",
-      desc: "PhD & IIT alumni with 10+ years of teaching experience",
-    },
-    {
-      id: 2,
-      icon: "📘",
-      title: "Personalized Learning",
-      desc: "Custom study plans and 1:1 mentorship sessions",
-    },
-    {
-      id: 3,
-      icon: "🏆",
-      title: "98% Success Rate",
-      desc: "Consistent top ranks in boards & competitive exams",
-    },
-    {
-      id: 4,
-      icon: "🏫",
-      title: "Modern Facilities",
-      desc: "Smart classrooms & advanced learning resources",
-    },
-  ];
-
-  const testimonialsData = [
-    {
-      id: 1,
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&h=200&q=80",
-      name: "Rahul Sharma",
-      role: "JEE Advanced 2023",
-      quote: "Diksha's faculty gave me conceptual clarity to secure AIR 287.",
-    },
-    {
-      id: 2,
-      image:
-        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&h=200&q=80",
-      name: "Priya Patel",
-      role: "NEET 2023",
-      quote: "Personalized mentorship improved my rank by 4000 positions.",
-    },
-    {
-      id: 3,
-      image:
-        "https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=200&h=200&q=80",
-      name: "Ananya Verma",
-      role: "Class 12 Boards",
-      quote: "Scored 98% in CBSE Boards with their study material & guidance.",
-    },
-    {
-      id: 4,
-      image:
-        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&h=200&q=80",
-      name: "Aryan Khanna",
-      role: "Class 10 Boards",
-      quote:
-        "Secured 97% with their comprehensive study material and doubt sessions.",
-    },
-    {
-      id: 5,
-      image:
-        "https://images.unsplash.com/photo-1567532939604-b6b5b0e1601d?auto=format&fit=crop&w=200&h=200&q=80",
-      name: "Neha Gupta",
-      role: "KVPY Scholar",
-      quote:
-        "The research guidance helped me secure KVPY fellowship with AIR 42.",
-    },
-    {
-      id: 6,
-      image:
-        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&h=200&q=80",
-      name: "Rohan Desai",
-      role: "JEE Mains 2023",
-      quote: "Improved from 85 to 99 percentile in just 6 months!",
-    },
-  ];
-
-  const galleryData = [
-    {
-      id: 1,
-      img: "https://images.pexels.com/photos/5212340/pexels-photo-5212340.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      alt: "Campus 1",
-    },
-    {
-      id: 2,
-      img: "https://images.pexels.com/photos/4145153/pexels-photo-4145153.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      alt: "Campus 2",
-    },
-    {
-      id: 3,
-      img: "https://images.pexels.com/photos/4144222/pexels-photo-4144222.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      alt: "Campus 3",
-    },
-  ];
-
-  const ctaData = {
-    title: "Ready to Transform Your Academic Journey?",
-    subtitle:
-      "Limited seats available for 2024-25 batch. Enroll now for exclusive benefits!",
-    buttons: [{ id: 2, text: "Schedule Campus Visit" }],
-  };
-
-  // NEW DATA SECTIONS
-  const ourStoryData = {
-    title: "Our Journey of Excellence",
-    description:
-      "Founded in 2008 , Diksha Classes has transformed from a small coaching center to a premier educational institution. Our mission is to democratize quality education through innovative teaching methodologies that make complex concepts accessible to all students.",
-    stats: [
-      { value: "15+", label: "Years of Excellence" },
-      { value: "10,000+", label: "Students Transformed" },
-      { value: "50+", label: "Expert Faculty" },
-      { value: "12", label: "Centers Nationwide" },
-    ],
-    image:
-      "https://images.pexels.com/photos/3184328/pexels-photo-3184328.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-  };
-
-  const coursesData = [
-    {
-      id: 1,
-      title: "JEE (Main + Advanced)",
-      description:
-        "Comprehensive program with 1000+ hours of intensive training",
-      duration: "2 Years",
-      highlights: [
-        "Daily practice tests",
-        "IIT alumni mentorship",
-        "AIR prediction tests",
-      ],
-    },
-    {
-      id: 2,
-      title: "NEET UG",
-      description: "Biology-focused curriculum with NCERT reinforcement",
-      duration: "2 Years",
-      highlights: [
-        "Special anatomy workshops",
-        "Medical professional interactions",
-        "Previous year paper analysis",
-      ],
-    },
-    {
-      id: 3,
-      title: "Pre-Foundation (Classes 6-10)",
-      description: "Building strong fundamentals for future competitive exams",
-      duration: "4 Years",
-      highlights: [
-        "Olympiad preparation",
-        "Concept visualization labs",
-        "Science projects",
-      ],
-    },
-    {
-      id: 4,
-      title: "Olympiad Excellence",
-      description: "Specialized training for international science olympiads",
-      duration: "1 Year",
-      highlights: [
-        "Problem-solving workshops",
-        "Previous IOQ papers",
-        "International exposure",
-      ],
-    },
-  ];
-
-  const faqData = [
-    {
-      id: 1,
-      question: "What makes Diksha different from other coaching institutes?",
-      answer:
-        "Our unique teaching methodology combines concept visualization, application workshops, and continuous assessment. We maintain a 1:15 teacher-student ratio for personalized attention and have developed proprietary learning materials that simplify complex concepts.",
-    },
-    {
-      id: 2,
-      question: "Do you provide scholarships?",
-      answer:
-        "Yes, we offer merit-based scholarships up to 100% tuition fee waiver for top performers in our entrance test. We also have need-based scholarships for economically disadvantaged students. Over 35% of our students receive some form of financial assistance.",
-    },
-    {
-      id: 3,
-      question: "How are parents kept informed about progress?",
-      answer:
-        "We provide monthly performance reports, conduct quarterly parent-teacher meetings, and offer 24/7 access to our student portal with real-time progress tracking. Parents also receive SMS alerts about test schedules and important announcements.",
-    },
-    {
-      id: 4,
-      question: "What safety measures do you have?",
-      answer:
-        "Our campuses have CCTV surveillance, biometric attendance, dedicated female staff, and medical facilities. We follow strict protocols for student safety including background-verified staff, secure transportation options, and anti-bullying policies.",
-    },
-    {
-      id: 5,
-      question: "How do you handle different learning paces?",
-      answer:
-        "We use adaptive learning technology that customizes study plans based on individual progress. Our foundation program includes remedial classes for struggling students and advanced modules for quick learners, ensuring every student reaches their potential.",
-    },
-  ];
-
-  // ✅ CMS HERO DATA
-  const [slides, setSlides] = useState([]);
-
-  useEffect(() => {
-    fetch("/content/hero.json")
-      .then((res) => res.json())
-      .then((data) => setSlides(data.slides))
-      .catch((err) => console.error("CMS Hero Load Error:", err));
-  }, []);
-
-  useEffect(() => {
-    if (!slides.length) return;
-
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % slides.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [slides]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [homeData, setHomeData] = useState(null);
   const [teamData, setTeamData] = useState([]);
+  const [marqueeNotices, setMarqueeNotices] = useState([]);
+
+  useEffect(() => {
+    fetch("/content/dashboard.json")
+      .then((res) => res.json())
+      .then((data) => {
+        const filtered = data.notices
+          ?.filter((notice) => notice.showInMarquee)
+          ?.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        setMarqueeNotices(filtered);
+      });
+  }, []);
 
   useEffect(() => {
     fetch("/content/team.json")
@@ -242,16 +29,66 @@ const Home = () => {
       .catch((err) => console.error("CMS Team Load Error:", err));
   }, []);
 
+  const toggleFaq = (id) => {
+    setActiveFaq(activeFaq === id ? null : id);
+  };
+
+  // 🔥 FETCH COMPLETE HOME DATA
+  useEffect(() => {
+    fetch("/content/home.json")
+      .then((res) => res.json())
+      .then((data) => setHomeData(data))
+      .catch((err) => console.error("Home CMS Load Error:", err));
+  }, []);
+  console.log(homeData);
+
+  // HERO AUTO SLIDER
+  useEffect(() => {
+    if (!homeData?.hero?.length) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % homeData.hero.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [homeData]);
+
+  if (!homeData) return null;
+
   return (
     <div className="min-h-screen bg-white font-sans">
-      {/* HERO SECTION */}
-      {slides.length > 0 && (
+      {marqueeNotices.length > 0 && (
+        <div className="bg-white text-blue-600 font-bold py-2 overflow-hidden">
+          <div className="whitespace-nowrap animate-marquee text-sm md:text-base font-medium">
+            {marqueeNotices.map(
+              (notice, index) =>
+                notice.file && (
+                  <a
+                    key={index}
+                    href={notice.file}
+                    download
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mx-8 hover:underline cursor-pointer"
+                  >
+                    {notice.title} -{" "}
+                    {new Date(notice.date).toLocaleDateString()}
+                  </a>
+                ),
+            )}
+          </div>
+        </div>
+      )}
+      {/* ================= HERO ================= */}
+      {homeData.hero?.length > 0 && (
         <section className="relative h-screen bg-black flex items-center justify-center overflow-hidden">
           <AnimatePresence>
             <motion.div
               key={currentIndex}
               className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${slides[currentIndex]?.image})` }}
+              style={{
+                backgroundImage: `url(${homeData.hero[currentIndex]?.image})`,
+              }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -262,34 +99,37 @@ const Home = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40" />
 
           <div className="relative z-10 text-center px-6">
-            <motion.h1 className="text-4xl md:text-6xl font-extrabold text-white">
-              {slides[currentIndex]?.title}
-            </motion.h1>
+            <h1 className="text-4xl md:text-6xl font-extrabold text-white">
+              {homeData.hero[currentIndex]?.title}
+            </h1>
 
-            <motion.p className="text-lg md:text-2xl text-gray-200 mt-6 mb-10">
-              {slides[currentIndex]?.subtitle}
-            </motion.p>
+            <p className="text-lg md:text-2xl text-gray-200 mt-6 mb-10">
+              {homeData.hero[currentIndex]?.subtitle}
+            </p>
 
-            <motion.button
-              onClick={() => setShowPopup(true)}
-              className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-full"
-            >
-              {slides[currentIndex]?.buttonText}
-            </motion.button>
+            {homeData.hero[currentIndex]?.buttonText && (
+              <button
+                onClick={() => setShowPopup(true)}
+                className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-full"
+              >
+                {homeData.hero[currentIndex]?.buttonText}
+              </button>
+            )}
           </div>
         </section>
       )}
 
-      {/* Features Section */}
+      {/* ================= FEATURES ================= */}
       <section className="py-20 px-6 bg-gradient-to-br from-blue-50 to-indigo-50">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-14">
-            Why Choose <span className="text-indigo-600">Diksha Classes</span>
+            {homeData.featuresSection?.title}
           </h2>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-            {featuresData.map((feature) => (
+            {homeData.featuresSection?.features?.map((feature, index) => (
               <motion.div
-                key={feature.id}
+                key={index}
                 whileHover={{ scale: 1.05 }}
                 className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition"
               >
@@ -304,145 +144,130 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-white overflow-x-hidden">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="overflow-hidden"
-            >
-              <img
-                src={ourStoryData.image}
-                alt="Our Story"
-                className="rounded-2xl shadow-xl w-full"
-              />
-            </motion.div>
+      {/* ================= OUR STORY ================= */}
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+          <img
+            src={homeData.ourStory?.image}
+            alt="Our Story"
+            className="rounded-2xl shadow-xl w-full"
+          />
 
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="overflow-hidden"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-                {ourStoryData.title}
-              </h2>
-              <p className="text-gray-600 text-lg mb-8">
-                {ourStoryData.description}
-              </p>
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              {homeData.ourStory?.title}
+            </h2>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                {ourStoryData.stats.map((stat, index) => (
-                  <div
-                    key={index}
-                    className="text-center p-4 bg-indigo-50 rounded-lg"
-                  >
-                    <div className="text-3xl font-bold text-indigo-600">
-                      {stat.value}
-                    </div>
-                    <div className="text-gray-700">{stat.label}</div>
+            <p className="text-gray-600 text-lg mb-8">
+              {homeData.ourStory?.description}
+            </p>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {homeData.ourStory?.stats?.map((stat, index) => (
+                <div
+                  key={index}
+                  className="text-center p-4 bg-indigo-50 rounded-lg"
+                >
+                  <div className="text-3xl font-bold text-indigo-600">
+                    {stat.value}
                   </div>
-                ))}
-              </div>
+                  <div className="text-gray-700">{stat.label}</div>
+                </div>
+              ))}
+            </div>
 
-              <button
-                onClick={() => setShowPopup(true)}
-                className="mt-8 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition"
-              >
-                Learn More About Us
-              </button>
-            </motion.div>
+            <button
+              onClick={() => setShowPopup(true)}
+              className="mt-8 bg-indigo-600 text-white py-3 px-6 rounded-lg"
+            >
+              {homeData.ourStory?.buttonText}
+            </button>
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* ================= TESTIMONIALS ================= */}
       <section className="py-20 px-6 bg-gray-50">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-            Student Success Stories
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            {homeData.testimonialsSection?.title}
           </h2>
-          <p className="text-gray-600 mb-14 max-w-2xl mx-auto">
-            Hear from students who turned their dreams into reality with us.
+
+          <p className="text-gray-600 mb-14">
+            {homeData.testimonialsSection?.subtitle}
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonialsData.map((t) => (
-              <motion.div
-                key={t.id}
-                whileHover={{ y: -10 }}
-                className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transition"
-              >
-                <div className="flex items-center mb-4">
-                  <img
-                    src={t.image}
-                    alt={t.name}
-                    className="w-16 h-16 rounded-full object-cover border-2 border-indigo-500"
-                  />
-                  <div className="ml-4 text-left">
-                    <h4 className="font-bold text-lg">{t.name}</h4>
-                    <p className="text-indigo-600 text-sm">{t.role}</p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {homeData.testimonialsSection?.testimonials?.map(
+              (testimonial, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ y: -10 }}
+                  className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg"
+                >
+                  <div className="flex items-center mb-4">
+                    <img
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      className="w-16 h-16 rounded-full object-cover border-2 border-indigo-500"
+                    />
+                    <div className="ml-4 text-left">
+                      <h4 className="font-bold text-lg">{testimonial.name}</h4>
+                      <p className="text-indigo-600 text-sm">
+                        {testimonial.role}
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <p className="text-gray-600 italic">“{t.quote}”</p>
-              </motion.div>
-            ))}
+                  <p className="text-gray-600 italic">“{testimonial.quote}”</p>
+                </motion.div>
+              ),
+            )}
           </div>
         </div>
       </section>
 
-      {/* Course Offerings Section */}
+      {/* ================= COURSES ================= */}
       <section className="py-20 px-6 bg-gradient-to-br from-blue-50 to-indigo-50">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-            Our Premier Programs
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            {homeData.coursesSection?.title}
           </h2>
-          <p className="text-gray-600 mb-14 max-w-2xl mx-auto">
-            Specialized courses designed for maximum academic impact
+
+          <p className="text-gray-600 mb-14">
+            {homeData.coursesSection?.subtitle}
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {coursesData.map((course) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {homeData.coursesSection?.courses?.map((course, index) => (
               <motion.div
-                key={course.id}
+                key={index}
                 whileHover={{ scale: 1.03 }}
                 className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col"
               >
-                {/* Content Section */}
-                <div className="p-6 border-b-4 border-indigo-500 flex-grow">
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">
-                    {course.title}
-                  </h3>
+                <div className="p-6 flex-grow">
+                  <h3 className="text-xl font-bold mb-2">{course.title}</h3>
+
                   <p className="text-gray-600 mb-4">{course.description}</p>
+
                   <div className="text-indigo-600 font-semibold mb-4">
                     Duration: {course.duration}
                   </div>
 
-                  <div className="text-left">
-                    <h4 className="font-semibold text-gray-700 mb-2">
-                      Key Highlights:
-                    </h4>
-                    <ul className="space-y-1">
-                      {course.highlights.map((highlight, index) => (
-                        <li key={index} className="flex items-start">
-                          <span className="text-green-500 mr-2">✓</span>
-                          <span className="text-gray-600">{highlight}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  <ul className="space-y-1 text-left">
+                    {course.highlights?.map((highlight, i) => (
+                      <li key={i} className="flex items-start">
+                        <span className="text-green-500 mr-2">✓</span>
+                        <span className="text-gray-600">{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                {/* Button Sticks to Bottom */}
                 <button
                   onClick={() => setShowPopup(true)}
-                  className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold transition"
+                  className="w-full py-3 bg-indigo-600 text-white"
                 >
-                  Request Syllabus
+                  {course.buttonText}
                 </button>
               </motion.div>
             ))}
@@ -450,19 +275,21 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Faculty Section */}
+      {/* ================= FACULTY ================= */}
       <section className="py-20 px-6 bg-white">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
             Meet Our Expert Faculty
           </h2>
+
           <p className="text-gray-600 mb-14 max-w-2xl mx-auto">
             Renowned educators with proven track records of student success
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamData.map((member) => (
+            {teamData?.map((member, index) => (
               <motion.div
+                key={index}
                 whileHover={{ y: -10 }}
                 className="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition"
               >
@@ -493,23 +320,24 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Gallery Section */}
+      {/* ================= GALLERY ================= */}
       <section className="py-20 px-6 bg-indigo-50">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-14">
-            Our Learning Environment
+          <h2 className="text-3xl md:text-4xl font-bold mb-14">
+            {homeData.gallerySection?.title}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {galleryData.map((g) => (
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {homeData.gallerySection?.gallery?.map((g, index) => (
               <motion.div
-                key={g.id}
+                key={index}
                 whileHover={{ scale: 1.05 }}
                 className="overflow-hidden rounded-2xl shadow-lg"
               >
                 <img
                   src={g.img}
                   alt={g.alt}
-                  className="w-full h-64 object-cover transform transition duration-500 hover:scale-110"
+                  className="w-full h-64 object-cover"
                 />
               </motion.div>
             ))}
@@ -517,46 +345,36 @@ const Home = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* ================= FAQ ================= */}
       <section className="py-20 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Frequently Asked Questions
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              {homeData.faqSection?.title}
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Get answers to common questions about our programs and admission
-              process
-            </p>
+            <p className="text-gray-600">{homeData.faqSection?.subtitle}</p>
           </div>
 
           <div className="space-y-4">
-            {faqData.map((faq) => (
+            {homeData.faqSection?.faqs?.map((faq, index) => (
               <div
-                key={faq.id}
+                key={index}
                 className="border border-gray-200 rounded-xl overflow-hidden"
               >
                 <button
-                  className="flex justify-between items-center w-full p-6 text-left bg-gray-50 hover:bg-gray-100 transition"
-                  onClick={() => toggleFaq(faq.id)}
+                  className="flex justify-between items-center w-full p-6 text-left bg-gray-50"
+                  onClick={() => toggleFaq(index)}
                 >
-                  <span className="font-semibold text-lg text-gray-800">
-                    {faq.question}
-                  </span>
+                  <span className="font-semibold text-lg">{faq.question}</span>
                   <span className="text-indigo-600 text-2xl">
-                    {activeFaq === faq.id ? "-" : "+"}
+                    {activeFaq === index ? "-" : "+"}
                   </span>
                 </button>
 
-                {activeFaq === faq.id && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    className="p-6 bg-white"
-                  >
+                {activeFaq === index && (
+                  <div className="p-6 bg-white">
                     <p className="text-gray-600">{faq.answer}</p>
-                  </motion.div>
+                  </div>
                 )}
               </div>
             ))}
@@ -564,31 +382,33 @@ const Home = () => {
 
           <div className="mt-12 text-center">
             <p className="text-gray-700 mb-6">
-              Still have questions? Our admission counselors are ready to help
+              {homeData.faqSection?.bottomText}
             </p>
             <button
               onClick={() => setShowPopup(true)}
-              className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg transition"
+              className="bg-indigo-600 text-white py-3 px-8 rounded-lg"
             >
-              Contact Admissions
+              {homeData.faqSection?.buttonText}
             </button>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* ================= CTA ================= */}
       <section className="py-24 px-6 bg-gradient-to-r from-indigo-600 to-purple-700">
         <div className="max-w-3xl mx-auto text-center text-white">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-6 leading-snug">
-            {ctaData.title}
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-6">
+            {homeData.ctaSection?.title}
           </h2>
-          <p className="text-lg text-indigo-100 mb-10">{ctaData.subtitle}</p>
+
+          <p className="text-lg mb-10">{homeData.ctaSection?.subtitle}</p>
+
           <div className="flex flex-col sm:flex-row justify-center gap-5">
-            {ctaData.buttons.map((btn) => (
+            {homeData.ctaSection?.buttons?.map((btn, index) => (
               <button
+                key={index}
                 onClick={() => setShowPopup(true)}
-                key={btn.id}
-                className="bg-transparent border-2 border-white text-white font-bold py-3 px-10 rounded-full text-lg hover:cursor-pointer hover:bg-white/10 transition"
+                className="border-2 border-white py-3 px-10 rounded-full"
               >
                 {btn.text}
               </button>
@@ -597,7 +417,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Popup Modal */}
       {showPopup && <ContactPopup onClose={() => setShowPopup(false)} />}
     </div>
   );

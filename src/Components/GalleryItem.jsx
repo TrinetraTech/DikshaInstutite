@@ -2,8 +2,24 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaTimes, FaPlay } from "react-icons/fa";
 
+const getYoutubeId = (url) => {
+  if (!url) return null;
+
+  const regExp =
+    /(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+
+  const match = url.match(regExp);
+  return match ? match[1] : null;
+};
+
 const GalleryItem = ({ item, variants }) => {
   const [isOpen, setIsOpen] = useState(false);
+  console.log(item);
+
+  const videoId = item.type === "video" ? getYoutubeId(item.src) : null;
+  console.log(videoId);
+
+  const embedUrl = videoId ? `https://www.youtube.com/embed/${videoId}` : null;
 
   return (
     <>
@@ -29,11 +45,14 @@ const GalleryItem = ({ item, variants }) => {
               />
             ) : (
               <>
-                {/* Video Thumbnail Look */}
-                <iframe
-                  src={item.src}
-                  className="w-full h-full object-cover pointer-events-none"
-                />
+                {/* Video Preview Thumbnail */}
+                {videoId && (
+                  <img
+                    src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
+                    alt="Video Thumbnail"
+                    className="w-full h-full object-cover"
+                  />
+                )}
 
                 {/* Play Overlay */}
                 <div className="absolute inset-0 flex items-center justify-center bg-black/30">
@@ -57,17 +76,19 @@ const GalleryItem = ({ item, variants }) => {
 
           {item.type === "photo" ? (
             <img
-              src={item.src}
+              src={item.image}
               alt="Popup"
               className="max-w-full max-h-[90vh] rounded-lg shadow-lg"
             />
           ) : (
-            <iframe
-              src={item.src}
-              allow="autoplay; fullscreen"
-              allowFullScreen
-              className="w-full max-w-4xl aspect-video rounded-lg shadow-lg"
-            />
+            embedUrl && (
+              <iframe
+                src={embedUrl}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full max-w-4xl aspect-video rounded-lg shadow-lg"
+              />
+            )
           )}
         </div>
       )}

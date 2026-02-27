@@ -1,0 +1,34 @@
+{
+  "title": "Welcome to Diksha Classes",
+  "subtitle": "Student Portal",
+  "notices": [
+    {
+      "title": "Scholarship Exam Poster",
+      "date": "2026-03-15T00:00:00.000Z",
+      "description": "Official scholarship announcement.",
+      "file": "/uploads/scholarship.jpg",
+      "showInMarquee": true
+    },
+    {
+      "title": "Scholarship Exam Poster",
+      "date": "2026-03-15T00:00:00.000Z",
+      "description": "Official scholarship announcement.",
+      "file": "/uploads/scholarship.jpg",
+      "showInMarquee": true
+    },
+    {
+      "title": "Scholarship Exam Poster",
+      "date": "2026-03-15T00:00:00.000Z",
+      "description": "Official scholarship announcement.",
+      "file": "/uploads/scholarship.jpg",
+      "showInMarquee": true
+    },
+    {
+      "title": "JEE Mock Test",
+      "date": "2026-03-10T00:00:00.000Z",
+      "description": "Mock test 4 schedule.",
+      "file": "/uploads/mock.pdf",
+      "showInMarquee": false
+    }
+  ]
+}

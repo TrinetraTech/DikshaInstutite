@@ -3,6 +3,15 @@
   "subtitle": "Student Portal",
   "notices": [
     {
+      "title": "Scholarship Exam Poster",
+      "date": "2026-03-15T00:00:00.000Z",
+      "description": "Official scholarship announcement.",
+      "file": "/uploads/scholarship.jpg",
+      "showInMarquee": true,
+      "showInDashboard": true,
+      "marqueePriority": 2
+    },
+    {
       "title": "JEE Mock Test",
       "date": "2026-03-10T00:00:00.000Z",
       "description": "Mock test 4 schedule.",
@@ -17,16 +26,7 @@
       "date": "2026-02-28T03:24:00.000+05:30",
       "description": "the clss will remain closed till holiu",
       "file": "/images/website-cost-patna.png",
-      "marqueePriority": 1
-    },
-    {
-      "title": "Scholarship Exam Poster",
-      "date": "2026-03-15T00:00:00.000Z",
-      "description": "Official scholarship announcement.",
-      "file": "/uploads/scholarship.jpg",
-      "showInMarquee": true,
-      "showInDashboard": true,
-      "marqueePriority": 2
+      "marqueePriority": 10
     }
   ]
 }

@@ -8,7 +8,8 @@
       "description": "Official scholarship announcement.",
       "file": "/uploads/scholarship.jpg",
       "showInMarquee": true,
-      "showInDashboard": true
+      "showInDashboard": true,
+      "marqueePriority": 2
     },
     {
       "title": "JEE Mock Test",

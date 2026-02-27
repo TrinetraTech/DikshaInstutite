@@ -7,28 +7,25 @@
       "date": "2026-03-15T00:00:00.000Z",
       "description": "Official scholarship announcement.",
       "file": "/uploads/scholarship.jpg",
-      "showInMarquee": true
-    },
-    {
-      "title": "Scholarship Exam Poster",
-      "date": "2026-03-15T00:00:00.000Z",
-      "description": "Official scholarship announcement.",
-      "file": "/uploads/scholarship.jpg",
-      "showInMarquee": true
-    },
-    {
-      "title": "Scholarship Exam Poster",
-      "date": "2026-03-15T00:00:00.000Z",
-      "description": "Official scholarship announcement.",
-      "file": "/uploads/scholarship.jpg",
-      "showInMarquee": true
+      "showInMarquee": true,
+      "showInDashboard": true
     },
     {
       "title": "JEE Mock Test",
       "date": "2026-03-10T00:00:00.000Z",
       "description": "Mock test 4 schedule.",
       "file": "/uploads/mock.pdf",
-      "showInMarquee": false
+      "showInMarquee": false,
+      "showInDashboard": true
+    },
+    {
+      "showInDashboard": true,
+      "showInMarquee": true,
+      "title": "class closed tomorreoe",
+      "date": "2026-02-28T03:24:00.000+05:30",
+      "description": "the clss will remain closed till holiu",
+      "file": "/images/website-cost-patna.png",
+      "marqueePriority": 1
     }
   ]
 }
